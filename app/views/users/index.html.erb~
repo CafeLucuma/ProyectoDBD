@@ -1,0 +1,28 @@
+<div class = "users index">
+	<h2>Users index</h2>
+	<%= link_to("Ingresar nuevo usuario", {:action => 'new'}, :class => 'action new') %>
+	<table class = "listing" summary = "users list">
+	 <tr class = "header">
+	  <th>&snbp;</th>
+	  <th>UserId</th>
+	  <th>Nombre</th>
+	  <th>Email</th>
+	  <th>Acciones</th>
+	 </tr>
+	<% @users.each do |user| %>
+	<tr>
+	 <td><%= user.users_ID %></td>
+	 <td><%= user.users_ID %></td>
+	 <td class = "center"><%= user.users_NAMES %></td>
+	 <td class = "center"><%= user.users_EMAIL %></td>
+	 <td class = "actions">
+		<%= link_to("Mostrar", {:action => 'show', :id => user.users_ID}, :class => 'action show') %>
+		<%= link_to("Editar", {:action => 'edit', :id => user.users_ID}, :class => 'action edit') %>
+		<%= link_to("Borrar", "#", :class => 'action delete') %>
+	 </td>
+	</tr>
+	<% end %>
+	</table>
+	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+
+</div>

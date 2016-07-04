@@ -1,0 +1,39 @@
+<%= link_to("Devuelta a index", {:action => 'index'}, :class => 'back-link') %>
+
+<div class = "user new">
+	<h2>Mostrando usuario</h2>
+	
+	<%= form_for(:user, :url => {:action => 'update', :id => @user.users_ID}) do |f|%>
+
+	<table summary = "Editar usuario">
+		<tr>
+			<th>Comuna ID</th>
+			<td><%= f.text_field(:communes_ID) %></td>
+		</tr>
+		<tr>
+			<th>Cédula ID</th>
+			<td><%= f.text_field(:ICT_ID) %></td>
+		</tr>
+		<tr>
+			<th>Nombres</th>
+			<td><%= f.text_field(:users_NAMES) %></td>
+		</tr>
+		<tr>
+			<th>Apellido paterno</th>
+			<td><%= f.text_field(:users_LASTNAME1) %></td>
+		</tr>
+		<tr>
+			<th>Apellido materno</th>
+			<td><%= f.text_field(:users_LASTNAME2) %></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td><%= f.text_field(:users_EMAIL) %></td>
+		</tr>
+	</table>
+	<div class = "form-buttons">
+		<%= submit_tag("Actualizar usuario") %>
+	</div>
+	<% end %>
+
+</div>

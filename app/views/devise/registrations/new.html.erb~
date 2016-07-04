@@ -1,0 +1,81 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :Cedula %><br />
+    <%= f.text_field :ICT_ID, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :Comuna %><br />
+    <%= f.text_field :communes_ID, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :Nombres %><br />
+    <%= f.text_field :users_NAMES, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :Apellido_Paterno %><br />
+    <%= f.text_field :users_LASTNAME1, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :Apellido_Materno %><br />
+    <%= f.text_field :users_LASTNAME2, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha_nacimiento %><br />
+    <%= f.date_field :users_DATE_OF_BIRTH, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha_nacimiento %><br />
+    <%= f.date_field :users_DATE_OF_BIRTH, autofocus: true %>
+  </div>
+
+ <div class="field">
+    <%= f.label :Telefono %><br />
+    <%= f.telephone_field :users_PHONE, autofocus: true %>
+  </div>
+ <div class="field">
+    <%= f.label :Celular %><br />
+    <%= f.telephone_field :users_CELLPHONE, autofocus: true %>
+  </div>
+ <div class="field">
+    <%= f.label :Sexo %><br />
+    <%= f.radio_button :users_SEX, 'H' %>
+    <%= f.label :users_SEX, 'Hombre',  :value => 'H' %>
+    <%= f.radio_button :users_SEX, 'M' %>
+    <%= f.label :users_SEX, 'Mujer', :value => 'M' %>
+    <%= f.radio_button :users_SEX, 'O' %>
+    <%= f.label :users_SEX, 'Otro', :value => 'O' %>
+  </div>
+
+ <div class="field">
+    <%= f.label :Direccion %><br />
+    <%= f.text_field :users_ADDRESS, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

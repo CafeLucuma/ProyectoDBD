@@ -1,0 +1,28 @@
+<%= link_to("Devuelta a index", {:action => 'index'}, :class => 'back-link') %>
+
+<div class = "user show">
+	<h2>Mostrando usuario</h2>
+	<table summary = "Usuario detallado">
+		<tr>
+			<th>ID</th>
+			<td><%= @user.users_ID %></td>
+		</tr>
+		<tr>
+			<th>cédula</th>
+			<td><%= @user.users_ID_CARD %></td>
+		</tr>
+		<tr>
+			<th>Nombres</th>
+			<td><%= @user.users_NAMES %></td>
+		</tr>
+		<tr>
+			<th>Apellido</th>
+			<td><%= @user.users_LASTNAME1 %></td>
+		</tr>
+		<tr>
+			<th>Ingresó el</th>
+			<td><%= @user.created_at %></td>
+		</tr>
+	</table>
+
+</div>
