@@ -1,0 +1,6 @@
+<h1>Welcome#index</h1>
+<p>Página de inicio</p>
+
+<%= link_to "Iniciar sesión",  new_user_session_path %>
+
+<%= link_to "Ubicación",  establishments_index_path %>

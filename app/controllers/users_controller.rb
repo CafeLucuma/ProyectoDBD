@@ -21,7 +21,11 @@ class UsersController < ApplicationController
 	end
 
   def edit
-	@user = User.find_by_users_ID(params[:id])
+	if current_user.users_ID != params[:id].to_i
+		redirect_to users_index_path, notice: 'No puedes editar otro usuario'
+	else
+		@user = User.find_by_users_ID(params[:id])
+	end
   end
 
   def delete
