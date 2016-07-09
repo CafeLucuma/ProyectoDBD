@@ -1,0 +1,2 @@
+module TakeHoursHelper
+end

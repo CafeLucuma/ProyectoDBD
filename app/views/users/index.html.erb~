@@ -11,20 +11,21 @@
 	 </tr>
 	<% @users.each do |user| %>
 	<tr>
-	 <td><%= user.users_ID %></td>
-	 <td><%= user.users_ID %></td>
-	 <td class = "center"><%= user.users_NAMES %></td>
-	 <td class = "center"><%= user.users_EMAIL %></td>
+	 <td><%= user.user_id %></td>
+	 <td><%= user.user_id %></td>
+	 <td class = "center"><%= user.user_NAMES %></td>
+	 <td class = "center"><%= user.user_EMAIL %></td>
 	 <td class = "actions">
-		<%= link_to("Mostrar", {:action => 'show', :id => user.users_ID}, :class => 'action show') %>
-		<%= link_to("Editar", {:action => 'edit', :id => user.users_ID}, :class => 'action edit') %>
+		<%= link_to("Mostrar", {:action => 'show', :id => user.user_ID}, :class => 'action show') %>
+		<%= link_to("Editar", {:action => 'edit', :id => user.user_ID}, :class => 'action edit') %>
 		<%= link_to("Borrar", "#", :class => 'action delete') %>
 	 </td>
 	</tr>
 	<% end %>
 	</table>
 	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-	<%= current_user.users_NAMES %>
-	<%= current_user.users_ID %>
+	<%= current_user.user_NAMES %>
+	<%= current_user.email %>
+	<%= current_user.user_ID %>
 
 </div>

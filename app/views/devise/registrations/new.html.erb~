@@ -27,10 +27,6 @@
     <%= f.label :Fecha_nacimiento %><br />
     <%= f.date_field :users_DATE_OF_BIRTH, autofocus: true %>
   </div>
-  <div class="field">
-    <%= f.label :Fecha_nacimiento %><br />
-    <%= f.date_field :users_DATE_OF_BIRTH, autofocus: true %>
-  </div>
 
  <div class="field">
     <%= f.label :Telefono %><br />

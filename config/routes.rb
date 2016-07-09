@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'take_hours/index'
+
+  get 'take_hours/show'
+
+  get 'take_hours/show2'
+
+  get 'take_hours/show3'
+
+  get 'search_specialties/index'
+
+  get 'search_medics/index'
+
   get 'users/index'
 
   get 'establishments/index'

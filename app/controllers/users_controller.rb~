@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-	@users = User.order(:users_ID)
+	@users = User.order(:user_ID)
   end
 
   def new
@@ -9,11 +9,11 @@ class UsersController < ApplicationController
 	def create
 		#instanciar nuevo objeto
 		ict = params[:user][:ICT_ID].to_i
-		comuna = params[:user][:communes_ID].to_i
-		names = params[:user][:users_NAMES]
-		paterno = params[:user][:users_LASTNAME1]		
-		materno = params[:user][:users_LASTNAME2]		
-		email = params[:user][:users_EMAIL]
+		comuna = params[:user][:communes_id].to_i
+		names = params[:user][:user_NAMES]
+		paterno = params[:user][:user_LASTNAME1]		
+		materno = params[:user][:user_LASTNAME2]		
+		email = params[:user][:user_EMAIL]
 		User.crear(ict, comuna, names, paterno, materno, email)
 
 		redirect_to(:action => 'index')
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 	end
 
   def edit
-	if current_user.users_ID != params[:id].to_i
+	if current_user.user_ID != params[:id].to_i
 		redirect_to users_index_path, notice: 'No puedes editar otro usuario'
 	else
 		@user = User.find_by_users_ID(params[:id])
