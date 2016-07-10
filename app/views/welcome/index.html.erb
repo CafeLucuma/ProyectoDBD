@@ -17,23 +17,13 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Servicios <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="404.html">Pedir Hora Médica</a></li>
-                        <li><a href="404.html">Ver Fichas</a></li>
-                        <li><a href="404.html">404</a></li>
-                        <li><a href="404.html">Shortcodes</a></li>
+                        <li><a href="#">Pedir Hora Médica</a></li>
+                        <li><a href="#">Ver Fichas</a></li>
                     </ul>
-                <li><a href="404.html">Acerca de Nosotros</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="404.html">Blog Single</a></li>
-                        <li><a href="404.html">Pricing</a></li>
-                        <li><a href="404.html">404</a></li>
-                        <li><a href="404.html">Shortcodes</a></li>
-                    </ul>
-                </li>
-                <li><a href="404.html">Blog</a></li> 
-                <li><a href="404.html">Contacto</a></li>                        
+                <li><a href="4#">Acerca de Nosotros</a></li>
+                <li><%= link_to "Ubicaciones",  establishments_index_path %></li>
+                <li><a href="#">Blog</a></li> 
+                <li><a href="#">Contacto</a></li>                        
             </ul>
         </div>
     </div><!--/.container-->
@@ -68,6 +58,26 @@
                     </div>
                 </div>
             </div><!--/.item-->
+            <div class="item" style="background-image: url('/assets/slider/bg3.jpg')">
+                <div class="container">
+                    <div class="row slide-margin">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h1 class="animation animated-item-1">Nuevos Hospitales Dentales</h1>
+                                <h2 class="animation animated-item-2">Tratamientos odontológicos de todo tipo. Los mejores profesionales para darle una atención de primer nivel. Primera evaluación Gratis</h2>
+                                <a class="btn-slide animation animated-item-3" href="#">Leer Más</a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 hidden-xs animation animated-item-4">
+                            <div class="slider-img">
+                                <%= image_tag('slider/img3.png', :class => 'img-responsive') %>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div><!--/.item-->
 
             <div class="item" style="background-image: url('/assets/slider/bg2.jpg')">
                 <div class="container">
@@ -79,30 +89,9 @@
                                 <a class="btn-slide animation animated-item-3" href="#">Leer Más</a>
                             </div>
                         </div>
-
                         <div class="col-sm-6 hidden-xs animation animated-item-4">
                             <div class="slider-img">
                                 <%= image_tag('slider/img2.png', :class => 'img-responsive') %>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div><!--/.item-->
-
-            <div class="item" style="background-image: url('/assets/slider/bg3.jpg')">
-                <div class="container">
-                    <div class="row slide-margin">
-                        <div class="col-sm-6">
-                            <div class="carousel-content">
-                                <h1 class="animation animated-item-1">Nuevos Hospitales Dentales</h1>
-                                <h2 class="animation animated-item-2">Tratamientos odontológicos de todo tipo. Los mejores profesionales para darle una atención de primer nivel. Primera evaluación Gratis</h2>
-                                <a class="btn-slide animation animated-item-3" href="#">Leer Más</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 hidden-xs animation animated-item-4">
-                            <div class="slider-img">
-                                <%= image_tag('slider/img3.png', :class => 'img-responsive') %>
                             </div>
                         </div>
                     </div>
@@ -118,5 +107,65 @@
     </a>
 </section><!--/#main-slider-->
 
+<section id="feature" >
+        <div class="container">
+           <div class="center wow fadeInDown">
+                <h2>Destacados</h2>
+                <p class="lead">En clínica Usach nos esforzamos por darte la mejor atención posible,<br>es por eso que ponemos a tu disposición los siguientes servicios</p>
+            </div>
 
-<%= link_to "Ubicación",  establishments_index_path %>
+            <div class="row">
+                <div class="features">
+                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-calendar-o"></i>
+                            <h2>Reserva de Horas</h2>
+                            <h3>Podrás reservar horas médicas de manera online</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+
+                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-book"></i>
+                            <h2>Ver Resultados</h2>
+                            <h3>Pronto podrás acceder a tus resultados a través del portal</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+
+                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-users"></i>
+                            <h2>Búsqueda de Médicos</h2>
+                            <h3>Puedes obtener información de médicos en la sección de servicios</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+                
+                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-question-circle"></i>
+                            <h2>Información</h2>
+                            <h3>Encontrarás info. de tópicos como Aranceles, Reglamentos y Pagos</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+
+                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-cogs"></i>
+                            <h2>Mejora Constante</h2>
+                            <h3>En Clínica Usach siempre estamos buscando los más altos estándares</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+
+                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-heart"></i>
+                            <h2>Salud</h2>
+                            <h3>Pronto se encontrarán disponibles guías para mejorar tu calidad de vida </h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+                </div><!--/.services-->
+            </div><!--/.row-->    
+        </div><!--/.container-->
+    </section><!--/#feature-->
+
+
