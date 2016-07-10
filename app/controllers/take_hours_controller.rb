@@ -1,7 +1,6 @@
 class TakeHoursController < ApplicationController
   def index
 	@doctor = User.find_by_sql("select * from users where user_NAMES = '#{params[:nombre]}'")	
-	
 
   end
 
