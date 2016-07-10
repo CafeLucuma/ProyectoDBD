@@ -15,7 +15,7 @@ https://www.dropbox.com/s/1d1znvxynmfpt3f/poblacion.sql?dl=0
 Después se debe clonar el repositorio. Una vez clonado, en la carpeta de la aplicación y dentro de la consola, se debe usar:
 rake db:schema:dump
 
-Una vez hecho eso, dentro de la carpeta db/migrate el archivo ...add_devise_to_users.rb debe verse de esta manera:
+Una vez hecho eso, dentro de la carpeta db/migrate el archivo ...add_devise_to_users.rb debe modificarse y verse de esta manera:
 https://www.dropbox.com/s/vmnnp2fw3810dap/Screenshot%20from%202016-07-09%2019%3A50%3A43.png?dl=0
 
 Luego, en la consola se debe poner el comando:
