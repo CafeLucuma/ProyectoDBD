@@ -9,46 +9,46 @@
   </div>
   <div class="field">
     <%= f.label :Comuna %><br />
-    <%= f.text_field :communes_ID, autofocus: true %>
+    <%= f.text_field :commune_ID, autofocus: true %>
   </div>
   <div class="field">
     <%= f.label :Nombres %><br />
-    <%= f.text_field :users_NAMES, autofocus: true %>
+    <%= f.text_field :user_NAMES, autofocus: true %>
   </div>
   <div class="field">
     <%= f.label :Apellido_Paterno %><br />
-    <%= f.text_field :users_LASTNAME1, autofocus: true %>
+    <%= f.text_field :user_LASTNAME1, autofocus: true %>
   </div>
   <div class="field">
     <%= f.label :Apellido_Materno %><br />
-    <%= f.text_field :users_LASTNAME2, autofocus: true %>
+    <%= f.text_field :user_LASTNAME2, autofocus: true %>
   </div>
   <div class="field">
     <%= f.label :Fecha_nacimiento %><br />
-    <%= f.date_field :users_DATE_OF_BIRTH, autofocus: true %>
+    <%= f.date_field :user_DATE_OF_BIRTH, autofocus: true %>
   </div>
 
  <div class="field">
     <%= f.label :Telefono %><br />
-    <%= f.telephone_field :users_PHONE, autofocus: true %>
+    <%= f.telephone_field :user_PHONE, autofocus: true %>
   </div>
  <div class="field">
     <%= f.label :Celular %><br />
-    <%= f.telephone_field :users_CELLPHONE, autofocus: true %>
+    <%= f.telephone_field :user_CELLPHONE, autofocus: true %>
   </div>
  <div class="field">
     <%= f.label :Sexo %><br />
-    <%= f.radio_button :users_SEX, 'H' %>
+    <%= f.radio_button :user_SEX, 'H' %>
     <%= f.label :users_SEX, 'Hombre',  :value => 'H' %>
-    <%= f.radio_button :users_SEX, 'M' %>
+    <%= f.radio_button :user_SEX, 'M' %>
     <%= f.label :users_SEX, 'Mujer', :value => 'M' %>
-    <%= f.radio_button :users_SEX, 'O' %>
+    <%= f.radio_button :user_SEX, 'O' %>
     <%= f.label :users_SEX, 'Otro', :value => 'O' %>
   </div>
 
  <div class="field">
     <%= f.label :Direccion %><br />
-    <%= f.text_field :users_ADDRESS, autofocus: true %>
+    <%= f.text_field :user_ADDRESS, autofocus: true %>
   </div>
 
   <div class="field">

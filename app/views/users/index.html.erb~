@@ -16,8 +16,8 @@
 	 <td class = "center"><%= user.user_NAMES %></td>
 	 <td class = "center"><%= user.user_EMAIL %></td>
 	 <td class = "actions">
-		<%= link_to("Mostrar", {:action => 'show', :id => user.user_ID}, :class => 'action show') %>
-		<%= link_to("Editar", {:action => 'edit', :id => user.user_ID}, :class => 'action edit') %>
+		<%= link_to("Mostrar", {:action => 'show', :id => user.user_id}, :class => 'action show') %>
+		<%= link_to("Editar", {:action => 'edit', :id => user.user_id}, :class => 'action edit') %>
 		<%= link_to("Borrar", "#", :class => 'action delete') %>
 	 </td>
 	</tr>
@@ -26,6 +26,5 @@
 	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 	<%= current_user.user_NAMES %>
 	<%= current_user.email %>
-	<%= current_user.user_ID %>
-
+	<%= current_user.user_id %>
 </div>
