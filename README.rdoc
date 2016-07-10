@@ -1,28 +1,33 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Primero se debe crear la base de datos en mysql, la cual se debe llamar:
+ProyectoDBD_development
 
-Things you may want to cover:
+Luego, usar source con este archivo
+https://www.dropbox.com/s/lxbsokkjitad9ae/SQL_corregido.sql?dl=0
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Después source con este archivo
+https://www.dropbox.com/s/1d1znvxynmfpt3f/poblacion.sql?dl=0
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
+Después se debe clonar el repositorio. Una vez clonado, en la carpeta de la aplicación y dentro de la consola, se debe usar:
+rake db:schema:dump
+
+Una vez hecho eso, dentro de la carpeta db/migrate el archivo ...add_devise_to_users.rb debe verse de esta manera:
+https://www.dropbox.com/s/vmnnp2fw3810dap/Screenshot%20from%202016-07-09%2019%3A50%3A43.png?dl=0
+
+Luego, en la consola se debe poner el comando:
+rake db:migrate
+
+va a salir un error, después se abre el mismo archivo anterior y se debe ver así:
+https://www.dropbox.com/s/yjpndy6k8opa5ix/luego.jpg?dl=0
+
+Una vez modificado, se va a la consola y se ingresa el comando
+rake db:migrate
+
+Ahora no debería salir ningún error y la base de datos debería estar al día.
+
+
+
