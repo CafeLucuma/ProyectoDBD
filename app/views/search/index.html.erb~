@@ -1,0 +1,4 @@
+<div>
+<%= link_to "Buscar por médico", search_medics_index_path %>
+<%= link_to "Buscar por especialidad", search_specialties_index_path %>
+</div>

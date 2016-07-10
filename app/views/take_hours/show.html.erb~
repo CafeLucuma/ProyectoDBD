@@ -1,2 +1,2 @@
 <h1>TakeHours#show</h1>
-<%= @spec %>
+<%= @spec[0] %>
