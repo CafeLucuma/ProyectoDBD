@@ -11,7 +11,6 @@ https://www.dropbox.com/s/1d1znvxynmfpt3f/poblacion.sql?dl=0
 
 
 
-
 Después se debe clonar el repositorio. Una vez clonado, en la carpeta de la aplicación y dentro de la consola, se debe usar:
 rake db:schema:dump
 
