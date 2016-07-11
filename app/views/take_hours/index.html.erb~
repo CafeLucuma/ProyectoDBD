@@ -16,9 +16,8 @@
 	<% while inicio <= final %>
 	<tr>
 		<td><%= inicio.strftime('%H:%M') %></td>
-		<td><%= link_to "Tomar hora", search_medics_index_path %></td>
+		<td><%= link_to "Tomar hora", {:action => 'show2', :ab_id => f.AB_ID, :hora_inicio => inicio, :user_id => @doctor[0].user_id} %></td>
 		<td><%= s.SPEC_NAME %></td>
-
 		<% inicio = inicio + 3600/eficiencia %>
 	</tr>
 	<% end %>
