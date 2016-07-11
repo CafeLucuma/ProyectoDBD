@@ -1,15 +1,15 @@
 <%= form_tag url_for(:controller => "take_hours", :action => 'index' ), method: "get"  do %>
 	<div>
   <%= label_tag(:nombre, "Nombre")%><br />
-  <%= text_field_tag (:nombre) %>
+  <%= text_field_tag :nombre, nil, :required => true %>
 	</div>
 	<div>
   <%= label_tag(:paterno, "Apellido Paterno")%><br />
-  <%= text_field_tag (:paterno) %>
+  <%= text_field_tag (:paterno, nil, :required => true) %>
 	</div>
 	<div>
   <%= label_tag(:materno, "Apellido Materno")%><br />
-  <%= text_field_tag (:materno) %>
+  <%= text_field_tag (:materno, nil, :required => true) %>
 	</div>
   <%= submit_tag "Buscar" %>
 <% end %>

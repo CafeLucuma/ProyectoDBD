@@ -1,2 +1,28 @@
-<h1>TakeHours#index</h1>
-<%= @doctor[0].user_NAMES %>
+<h2>Doctor: <%= @doctor[0].user_NAMES%> <%= @doctor[0].user_LASTNAME1 %></h2>
+
+<% @abs.each do |f| %>
+<% @specs.each do |s|%>
+<%if s.SPEC_ID == f.SPEC_ID%>
+<% inicio = f.AB_START_TIME %>
+<% final = f.AB_FINISH_TIME %>
+<% eficiencia = f.AB_EFFICIENCY %>
+<h2><%= f.AB_DATE.strftime('%A')%> <%= f.AB_DATE.strftime('%d')%> de <%= f.AB_DATE.strftime('%B')%> <%= f.AB_DATE.strftime('%Y')%></h2>
+<table >
+	<tr>
+	<th>Hora</th>
+	<th>Reservar</th>
+	<th>Especialidad</th>
+	</tr>
+	<% while inicio <= final %>
+	<tr>
+		<td><%= inicio.strftime('%H:%M') %></td>
+		<td><%= link_to "Tomar hora", search_medics_index_path %></td>
+		<td><%= s.SPEC_NAME %></td>
+
+		<% inicio = inicio + 3600/eficiencia %>
+	</tr>
+	<% end %>
+</table>
+<%end%>
+<% end %>
+<%end%>

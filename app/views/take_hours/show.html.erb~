@@ -1,2 +1,8 @@
 <h1>TakeHours#show</h1>
-<%= @spec[0] %>
+<%= @spec %>
+<%= @doctors %>
+
+<%= form_tag(:action => 'show2') do %>
+	<%= select_tag(:id, options_from_collection_for_select(@doctors, :user_id, :user_NAMES))%>
+	<%= submit_tag "Seleccionar" %>
+<% end %>
