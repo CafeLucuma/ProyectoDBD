@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
 		created = Time.zone.now.to_s(:db)
 		updated = Time.zone.now.to_s(:db)
-		sql = "INSERT INTO users (ICT_ID, communes_ID, users_NAMES, users_LASTNAME1, users_LASTNAME2, users_EMAIL, created_at, updated_at) VALUES ('#{ict}', '#{comuna}', '#{names}', '#{paterno}','#{materno}','#{email}','#{created}','#{updated}')"
+		sql = "INSERT INTO users (ICT_ID, communes_ID, user_NAMES, user_LASTNAME1, user_LASTNAME2, user_EMAIL, created_at, updated_at) VALUES ('#{ict}', '#{comuna}', '#{names}', '#{paterno}','#{materno}','#{email}','#{created}','#{updated}')"
 		ActiveRecord::Base.connection.execute(sql)
 	end
 

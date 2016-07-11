@@ -15,6 +15,8 @@ class TakeHoursController < ApplicationController
 	@specs = Specialty.find_by_sql("select * from specialties")
   end
 
+
+#buscar por especialidad
   def show
 	#buscar especialidad
 	@spec = Specialty.find_by_sql("select * from specialties where SPEC_NAME = '#{params[:specialty][:SPEC_NAME]}'")
@@ -24,7 +26,15 @@ class TakeHoursController < ApplicationController
 
   end
 
+  #cuando se quiere agendar una hora
   def show2
+	if user_signed_in?
+		#ver si está inscrito como paciente
+		@paciente = Patient.find_by_sql("select * from patients where patients.user_id = '#{current_user.user_id}'")
+		if @paciente.count == 0
+
+		end
+	end
   end
 
   def show3

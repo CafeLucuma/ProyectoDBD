@@ -1,29 +1,22 @@
 class TakeHoursController < ApplicationController
   def index
 
-if !request.post?
-		#buscar el doctor con los nombres ingresados
-		@doctor = User.find_by_sql("select * from users inner join doctors on doctors.user_id = users.user_id where user_NAMES = '#{params[:nombre]}'")
+	#buscar el doctor con los nombres ingresados
+	@doctor = User.find_by_sql("select * from users inner join doctors on doctors.user_id = users.user_id where user_NAMES = '#{params[:nombre]}'")
 
-		if @doctor.count == 0
-			redirect_to search_medics_index_path
-		end
-		#bloques de atención del doctor
-		@abs = AttentionBlock.find_by_sql("select * from attention_blocks ab inner join doctors d on d.doctor_id = ab.doctor_id inner join users u on u.user_id = d.user_id where u.user_NAMES = '#{params[:nombre]}'")
+	if @doctor.count == 0
+		redirect_to search_medics_index_path
+	end
 
-		#especialidades de los bloques
-		@specs = Specialty.find_by_sql("select * from specialties")
+	#bloques de atención del doctor
+	@abs = AttentionBlock.find_by_sql("select * from attention_blocks ab inner join doctors d on d.doctor_id = ab.doctor_id inner join users u on u.user_id = d.user_id where u.user_NAMES = '#{params[:nombre]}'")
 
-else
-	
-		#bloques de atención del doctor
-		@abs = AttentionBlock.find_by_sql("select * from attention_blocks ab inner join doctors d on d.doctor_id = ab.doctor_id inner join users u on u.user_id = d.user_id where u.user_NAMES = '#{params[:nombre]}' LIMIT 1")
+	#especialidades de los bloques
+	@specs = Specialty.find_by_sql("select * from specialties")
+  end
 
-		#especialidades de los bloques
-		@specs = Specialty.find_by_sql("select * from specialties")
- 	 end
-end
 
+#buscar por especialidad
   def show
 	#buscar especialidad
 	@spec = Specialty.find_by_sql("select * from specialties where SPEC_NAME = '#{params[:specialty][:SPEC_NAME]}'")
@@ -33,7 +26,15 @@ end
 
   end
 
+  #cuando se quiere agendar una hora
   def show2
+	if user_signed_in?
+		#ver si está inscrito como paciente
+		@paciente = Patient.find_by_sql("select * from patients where patients.user_id = '#{current_user.user_id}'")
+		if @paciente.count == 0
+			Patient.crear()
+		end
+	end
   end
 
   def show3
