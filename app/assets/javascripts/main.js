@@ -1,5 +1,7 @@
 jQuery(function($) {'use strict',
-
+	$(document).ready(function() {
+    	$('#example').DataTable();
+	} );
 	//#main-slider
 	$(function(){
 		$('#main-slider.carousel').carousel({
