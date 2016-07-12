@@ -13,15 +13,13 @@
 			 	<div class="main-login search-center">
 					<center><%= form_for @spec, url: {:controller => 'take_hours', :action => 'show'}, method: :get do |f| %>
 					<%= f.collection_select :SPEC_NAME, Specialty.find_by_sql("select * from specialties"), :SPEC_NAME, :SPEC_NAME %></center>
-					<button type="submit_tag" class="btn btn-primary btn-lg btn-block login-button">Buscar</button>
+					<button type="submit" class="btn btn-primary btn-lg btn-block login-button">Buscar</button>
 				</div>
 			</div>
 				
 		</div>
 	</section>
 </body>
-
-
 
 <% end %>
 

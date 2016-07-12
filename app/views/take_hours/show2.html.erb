@@ -1,5 +1,5 @@
 <h2>Confirmar hora con el doctor <%= @doctor[0].user_NAMES %> <%= @doctor[0].user_LASTNAME1 %> <%= @doctor[0].user_LASTNAME2 %> para la especialidad <%= @spec[0].SPEC_NAME %>.</h2></br>
 
-<h2>Fecha: <%= @ab[0].AB_DATE %> a las <%= @hora_inicio%> horas</h2>
+<h2>Fecha: <%= @ab[0].AB_DATE %> a las <%= Time.parse(@hora_inicio).strftime('%H:%M')%> horas</h2>
 
 <p> <%= button_to "Confirmar", {:action => 'show3', :patient_id => @paciente[0].patient_id, :ab_id => @ab[0].AB_ID, :hora_inicio => @hora_inicio, :hora_fin => @hora_fin} %></p>

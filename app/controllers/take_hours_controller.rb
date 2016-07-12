@@ -24,7 +24,11 @@ class TakeHoursController < ApplicationController
 	end
 
 	#especialidades de los bloques
+	@realdoctor = Doctor.find_by_sql("select * from doctors d inner join users u on u.user_id = d.user_id where u.user_id = '#{@doctor[0].user_id}'")
 	@specs = Specialty.find_by_sql("select * from specialties")
+	@est = Establishment.find_by_sql("select * from establishments e where e.EST_ID = '#{@realdoctor[0].EST_ID}'")
+	@comuna = Commune.find_by_sql("select * from communes where commune_id = '#{@est[0].commune_id}'")
+	@ciudad = City.find_by_sql("select * from cities where city_id = '#{@comuna[0].city_id}'")
   end
 
 
@@ -53,7 +57,7 @@ class TakeHoursController < ApplicationController
 		  @hr.each do |f|
        		    if (f.RH_START_TIME.to_s == params[:hora_inicio] && f.RH_STATE == true)
 			flash[:alert] = "Hora ya está tomada"
-		 	redirect_to(:back)	
+		 	redirect_to search_index_path	
 		    end
 		  end		
 		end

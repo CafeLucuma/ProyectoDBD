@@ -2,7 +2,7 @@ class AdministrationsController < ApplicationController
 	before_filter :authenticate_user!
   	before_filter do 
     		redirect_to new_user_session_path unless current_user && current_user.admin?
-  end
+  	end
   def index
   end
 
@@ -15,6 +15,11 @@ class AdministrationsController < ApplicationController
 	@usuarios = User.find_by_sql("select * from users u inner join patients p on p.user_id = u.user_id")
 	#pacientes
 	@pacientes = Patient.find_by_sql("select * from patients")
+  end
+
+  def cancelar
+	ReservedHour.cancelar params[:id_hora]
+
   end
 
   def selec_doctor

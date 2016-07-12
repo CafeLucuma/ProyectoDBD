@@ -17,6 +17,11 @@ class AdministrationsController < ApplicationController
 	@pacientes = Patient.find_by_sql("select * from patients")
   end
 
+  def cancelar
+	ReservedHour.cancelar params[:id_hora]
+	redirect_to administrations_hours_path
+  end
+
   def selec_doctor
 	@doctors = Doctor.find_by_sql("select * from doctors")
 	#usuarios que son doctores

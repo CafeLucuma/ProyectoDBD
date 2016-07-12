@@ -1,6 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def new
+	@icts = IdCardType.find_by_sql("select * from id_card_types")
 	@comunas = Commune.find_by_sql("select * from communes")
 	super
   end

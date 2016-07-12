@@ -1,27 +1,60 @@
-<h2>Doctor: <%= @doctor[0].user_NAMES%> <%= @doctor[0].user_LASTNAME1 %></h2>
+<head>
+	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" language="javascript" type="text/javascript">
+	</script>
+	<script src="//code.jquery.com/jquery-1.12.3.js" language="javascript" type="text/javascript">
+	</script>
+</head>
+<div style= "margin-top: 20px">
+	<table id="example">
+	    <thead>
+	        <tr role="row">
+	        	<th>Doctor</th>
+	            <th>Hora</th>
+	            <th>Especialidad</th>
+	            <th>Fecha</th>
+		    <th>Ciudad</th>
+		    <th>Comuna</th>
+		    <th>Dirección</th>
+	            <th>Reservar Hora</th>
+		    
+	        </tr>
+	    </thead>
+	    <tfoot>
+	        <tr>
+	            <th>Doctor</th>
+	            <th>Hora</th>
+	            <th>Especialidad</th>
+	            <th>Fecha</th>
+	            <th>Reservar Hora</th>
+		    <th>Ciudad</th>
+		    <th>Comuna</th>
+		    <th>Dirección</th>
+	        </tr>
+	    </tfoot>
+		<% @abs.each do |f| %>
+		<% @specs.each do |s|%>
+		<%if (s.SPEC_ID == f.SPEC_ID) %>
+			<% inicio = f.AB_START_TIME %>
+			<% final = f.AB_FINISH_TIME %>
+			<% eficiencia = f.AB_EFFICIENCY %>
+			<tbody>
+			<% while inicio <= final %>
+			<tr>
+			<td><%= @doctor[0].user_NAMES%> <%= @doctor[0].user_LASTNAME1 %></td>
+			<td><%= inicio.strftime('%H:%M') %></td>
+			<td><%= s.SPEC_NAME %></td>
+			<td><%= f.AB_DATE.strftime('%A')%> <%= f.AB_DATE.strftime('%d')%> de <%= f.AB_DATE.strftime('%B')%><%= f.AB_DATE.strftime('%Y')%></td>
+			<td><%= link_to "<button class='btn btn-primary btn-lg btn-block login-button'>Tomar hora</button>".html_safe, {:action => 'show2', :ab_id => f.AB_ID, :hora_inicio => inicio, :user_id => @doctor[0].user_id, :hora_fin => (inicio + 3600/eficiencia)} %></td>
+			<td><%= @ciudad[0].city_NAME %></td>
+			<td><%= @comuna[0].commune_NAME %></td>
+			<td><%= @est[0].EST_ADDRESS %></td>
+			<% inicio = inicio + 3600/eficiencia %>
+			</tr>
+			<% end %>
+			</tbody>
+		<% end %>
+		<% end %>
+		<% end %>
+	</table>
+</div>
 
-<% @abs.each do |f| %>
-<% @specs.each do |s|%>
-<%if s.SPEC_ID == f.SPEC_ID%>
-<% inicio = f.AB_START_TIME %>
-<% final = f.AB_FINISH_TIME %>
-<% eficiencia = f.AB_EFFICIENCY %>
-<h2><%= f.AB_DATE.strftime('%A')%> <%= f.AB_DATE.strftime('%d')%> de <%= f.AB_DATE.strftime('%B')%> <%= f.AB_DATE.strftime('%Y')%></h2>
-<table >
-	<tr>
-	<th>Hora</th>
-	<th>Reservar</th>
-	<th>Especialidad</th>
-	</tr>
-	<% while inicio <= final %>
-	<tr>
-		<td><%= inicio.strftime('%H:%M') %></td>
-		<td><%= link_to "Tomar hora", {:action => 'show2', :ab_id => f.AB_ID, :hora_inicio => inicio, :user_id => @doctor[0].user_id} %></td>
-		<td><%= s.SPEC_NAME %></td>
-		<% inicio = inicio + 3600/eficiencia %>
-	</tr>
-	<% end %>
-</table>
-<%end%>
-<% end %>
-<%end%>
