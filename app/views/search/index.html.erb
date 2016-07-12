@@ -1,3 +1,16 @@
-<%= link_to "Buscar por médico", search_medics_index_path %>
-<%= link_to "Buscar por especialidad", search_specialties_index_path %>
-
+<head>
+  <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+</head>
+<section id="about-us">
+	<div class = "container" >
+		<div class="center wow fadeInDown">
+			<h2> Seleccione una Opción</h2>
+		</div>
+		 <div class="main-login search-center">
+			<%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Buscar por médico</button>".html_safe, search_medics_index_path %>
+			<%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Buscar por especialidad</button>".html_safe, search_specialties_index_path %>
+		</div>
+	</div>
+</section>

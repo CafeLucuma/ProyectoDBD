@@ -2542,6 +2542,14 @@ shortcodes page css
 
 }
 
+.search-center{
+  margin-top: 30px;
+  margin: 0 auto;
+  max-width: 550px;
+    padding: 40px 40px;
+
+}
+
 .login-button{
   margin-top: 5px;
 }

@@ -37,7 +37,7 @@
 								<td><%= inicio.strftime('%H:%M') %></td>
 								<td><%= s.SPEC_NAME %></td>
 								<td><%= f.AB_DATE.strftime('%A')%> <%= f.AB_DATE.strftime('%d')%> de <%= f.AB_DATE.strftime('%B')%><%= f.AB_DATE.strftime('%Y')%></td>
-								<td><%= link_to "Tomar hora", {:action => 'show2', :ab_id => f.AB_ID, :hora_inicio => inicio, :user_id => @doctor[0].user_id, :hora_fin => (inicio + 3600/eficiencia)} %></td>
+								<td><%= link_to "<button class='btn btn-primary btn-lg btn-block login-button'>Tomar hora</button>".html_safe, {:action => 'show2', :ab_id => f.AB_ID, :hora_inicio => inicio, :user_id => @doctor[0].user_id, :hora_fin => (inicio + 3600/eficiencia)} %></td>
 								<% inicio = inicio + 3600/eficiencia %>
 							</tr>
 						<% end %>
