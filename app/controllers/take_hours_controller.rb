@@ -17,8 +17,7 @@ class TakeHoursController < ApplicationController
 	else
 		#se busca por id
 		@doctor = User.find_by_sql("select * from users where users.user_id = '#{params[:id]}'")
-		@abs = AttentionBlock.find_by_sql("select * from attention_blocks ab where ab.doctor_id = '#{params[:id]}'")
-
+		@abs = AttentionBlock.find_by_sql("select * from attention_blocks ab inner join doctors d on d.doctor_id = ab.doctor_id inner join users u on u.user_id = d.user_id where u.user_id = '#{params[:id]}'")
 
 	end
 
@@ -50,7 +49,7 @@ class TakeHoursController < ApplicationController
 		#hr = horas dentro del mismo bloque
 		if @hr != nil #si existe
 		  @hr.each do |f|
-       		    if f.RH_START_TIME.to_s == params[:hora_inicio]
+       		    if (f.RH_START_TIME.to_s == params[:hora_inicio] && f.RH_STATE == true)
 			flash[:alert] = "Hora ya está tomada"
 		 	redirect_to(:back)	
 		    end
@@ -63,9 +62,11 @@ class TakeHoursController < ApplicationController
 		#bloque de atención
 		@ab = AttentionBlock.find_by_sql("select * from attention_blocks ab where ab.AB_ID = '#{params[:ab_id]}'")
 
+		#horas inicio y fin
 		@hora_inicio = params[:hora_inicio]
 		@hora_fin = params[:hora_fin]
 
+		#especialidad de la hora
 		@spec = Specialty.find_by_sql("select * from specialties where specialties.SPEC_ID = '#{@ab[0].SPEC_ID}'")
 
 	else

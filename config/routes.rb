@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'my_hours/mishoras'
+
+  get 'my_hours/mishoras2'
+
   get 'search/index'
 
   get 'take_hours/index'

@@ -1,0 +1,20 @@
+<h2>Mis horas reservadas</h2>
+
+<table>
+	<tr>
+		<th>Fecha</th>
+		<th>Hora</th>
+		<th>Cancelar hora</th>
+	</tr>
+	<% @horas.each do |f| %>
+	<% @abs.each do |a| %>
+	<% if f.AB_ID == a.AB_ID %>
+		<tr>
+			<td><%= a.AB_DATE %></td>
+			<td><%= f.RH_START_TIME.strftime('%H:%M')%></td>
+			<td><%= button_to "Cancelar", {:action => 'cancelar', :id_hora => f.RH_ID} %></td>
+		</tr>
+	<% end %>
+	<% end %>
+	<% end %>
+</table>
