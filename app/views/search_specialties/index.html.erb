@@ -1,6 +1,28 @@
-<%= form_for @spec, url: {:controller => 'take_hours', :action => 'show'}, method: :get do |f| %>
-	<%= f.collection_select :SPEC_NAME, Specialty.find_by_sql("select * from specialties"), :SPEC_NAME, :SPEC_NAME %>
-	<%= f.submit "Buscar" %>
+<head>
+  <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+</head>
+<body style = "background-color: #d3d3d3">
+	<section id="about-us">
+		<div class = "container" >
+			<div class="center wow fadeInDown">
+				<h2> Seleccione una Especialidad</h2>
+			</div>
+			<div class="cols-sm-6">
+			 	<div class="main-login search-center">
+					<center><%= form_for @spec, url: {:controller => 'take_hours', :action => 'show'}, method: :get do |f| %>
+					<%= f.collection_select :SPEC_NAME, Specialty.find_by_sql("select * from specialties"), :SPEC_NAME, :SPEC_NAME %></center>
+					<button type="submit_tag" class="btn btn-primary btn-lg btn-block login-button">Buscar</button>
+				</div>
+			</div>
+				
+		</div>
+	</section>
+</body>
+
+
+
 <% end %>
 
 

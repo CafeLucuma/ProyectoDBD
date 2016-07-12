@@ -33,6 +33,10 @@
                   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                   <%= f.password_field :password, autocomplete: "off", placeholder: "Ingrese sus Contraseña"%>
                 </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="cols-sm-10">
                 <div class="field">
                   <% if devise_mapping.rememberable? -%>
                     <center><%= f.check_box :remember_me %><%= f.label :Recordarme %></center>
