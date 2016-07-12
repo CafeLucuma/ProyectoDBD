@@ -1,23 +1,21 @@
-<div class = "establishments index">
-	<h2>Establecimientos</h2>
+<div >
+	<center><h2>Establecimientos</h2></center>
 	<table class = "listing" summary = "establishments list">
-	 <tr class = "header">
-	  <th>ID</th>
-	  <th>Comuna</th>
-	  <th>Dirección</th>
-	  <th>Teléfono</th>
-	 </tr>
-	<% @ests.each do |est| %>
-	  <% @coms.each do |com| %>
-	     <% if est.commune_id == com.commune_id %>
-		<tr>
-		 <td><%= est.EST_ID %></td>
-		 <td><%= com.commune_NAME%></td>
-		 <td class = "center"><%= est.EST_ADDRESS %></td>
-		 <td class = "center"><%= est.EST_PHONE %></td>
+		<tr class = "header">
+			<th>Comuna</th>
+			<th>Dirección</th>
+			<th>Teléfono</th>
 		</tr>
-	      <% end %>
-	  <% end %>
-	<% end %>
+		<% @ests.each do |est| %>
+			<% @coms.each do |com| %>
+				<% if est.commune_id == com.commune_id %>
+					<tr>
+						<td><%= com.commune_NAME%></td>
+						<td><%= est.EST_ADDRESS %></td>
+						<td><%= est.EST_PHONE %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% end %>
 	</table>
 </div>
