@@ -54,17 +54,17 @@
               <div class="cols-sm-10">
                 <div class="input-group">
                   <!--<%= f.date_field :user_DATE_OF_BIRTH, autofocus: true, placeholder: "Ej: 22-03-1994" %>-->
-                  <%= date_select(:fecha, "", start_year: 1920, use_month_numbers: true, order: [:day, :month, :year])%></br>
+                  <%= date_select(:user_DATE_OF_BIRTH, "", start_year: 1920, use_month_numbers: true, order: [:day, :month, :year])%></br>
                 </div>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="username" class="cols-sm-2 control-label">Tipo de cédula</label>
+              <label for="username" class="cols-sm-2 control-label">Nacionalidad</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-credit-card fa" aria-hidden="true"></i></span>
-                  <%= f.text_field :ICT_ID, autofocus: true, placeholder: "Ingrese un Entero" %>
+                  <%= f.select(:ICT_ID, options_from_collection_for_select(@icts, :ICT_ID, :ICT_NATIONALITY))%>
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
-                  <%= f.text_field :commune_id, autofocus: true, placeholder: "Ingrese un Entero"%>  
+                  <%= f.select(:commune_id, options_from_collection_for_select(@comunas, :commune_id, :commune_NAME))%>  
                 </div>
               </div>
             </div>

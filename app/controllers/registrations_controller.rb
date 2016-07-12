@@ -1,8 +1,17 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  def new
+	@icts = IdCardType.find_by_sql("select * from id_card_types")
+	@comunas = Commune.find_by_sql("select * from communes")
+	super
+  end
+
   def create
 	super
 	@patient = Patient.create(user_id: User.last.user_id, prevision_id: params[:prevision_id])
+
+	#agregar date_of_birth
+	User.actualizar_cumple(params[:user_DATE_OF_BIRTH], resource.user_id)
   end
 
   protected

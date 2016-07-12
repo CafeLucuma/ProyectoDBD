@@ -12,4 +12,9 @@ class User < ActiveRecord::Base
 		ActiveRecord::Base.connection.execute(sql)
 	end
 
+	def self.actualizar_cumple fecha, id
+		cumple = fecha["(1i)"]+"-"+fecha["(2i)"]+"-"+fecha["(3i)"]
+		sql = "UPDATE users SET user_DATE_OF_BIRTH = '#{cumple}' WHERE user_id = '#{id}'"
+		ActiveRecord::Base.connection.execute(sql)
+	end
 end
