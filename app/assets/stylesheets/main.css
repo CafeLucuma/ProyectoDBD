@@ -2514,6 +2514,7 @@ shortcodes page css
 }
 
 .login-body{
+  background-color: #d3d3d3
   height: 100%;
   background-repeat: no-repeat;
   font-family: 'Oxygen', sans-serif;
