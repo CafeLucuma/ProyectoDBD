@@ -12,12 +12,14 @@ class TakeHoursController < ApplicationController
 			redirect_to search_medics_index_path
 		end
 
-		#bloques de atención del doctor
-		@abs = AttentionBlock.find_by_sql("select * from attention_blocks ab inner join doctors d on d.doctor_id = ab.doctor_id inner join users u on u.user_id = d.user_id where u.user_NAMES = '#{params[:nombre]}'")
+		#bloques de atención disponibles del doctor
+		@abs = AttentionBlock.find_by_sql("select * from attention_blocks ab inner join doctors d on d.doctor_id = ab.doctor_id inner join users u on u.user_id = d.user_id where u.user_NAMES = '#{params[:nombre]}' and ab.AB_AVAILABLE = true")
 	else
 		#se busca por id
 		@doctor = User.find_by_sql("select * from users where users.user_id = '#{params[:id]}'")
-		@abs = AttentionBlock.find_by_sql("select * from attention_blocks ab inner join doctors d on d.doctor_id = ab.doctor_id inner join users u on u.user_id = d.user_id where u.user_id = '#{params[:id]}'")
+
+		#bloques de atención disponibles del doctor
+		@abs = AttentionBlock.find_by_sql("select * from attention_blocks ab inner join doctors d on d.doctor_id = ab.doctor_id inner join users u on u.user_id = d.user_id where u.user_id = '#{params[:id]}' and ab.AB_AVAILABLE = true")
 
 	end
 

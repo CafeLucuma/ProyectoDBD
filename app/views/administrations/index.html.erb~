@@ -1,0 +1,2 @@
+<% link_to "Administrar horas", administrations_hours_path %>
+<% link_to "Administrar bloques de atención",  administrations_selec_doctor_path%>

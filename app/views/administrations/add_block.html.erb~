@@ -1,0 +1,17 @@
+<h2>Agregar bloque para el doctor <%= @doctor[0].user_NAMES %></h2>
+
+<%= form_tag url_for(:controller => "administrations", :action => 'agregar_bloque'), method: "get"  do %>
+  <%= hidden_field_tag :doctor_id, @doctor[0].doctor_id %>
+  <%= label_tag(:fecha, "Fecha de bloque (día/mes/año):") %></br>
+  <%= date_select(:fecha, "", start_year: 2016, use_month_numbers: true, order: [:day, :month, :year])%></br>
+  <%= label_tag(:hora_inicio, "Hora de inicio:") %></br>
+  <%= time_select :hora_inicio, '', {minute_step: 30}, prompt: {hour: 'hora', minute: 'minutos'}%></br>
+  <%= label_tag(:hora_fin, "Hora de fin:") %></br>
+<%= time_select :hora_fin, '', {minute_step: 30}, prompt: {hour: 'hora', minute: 'minutos'}%></br>
+  <%= label_tag(:eficiencia, "Eficiencia por hora:") %></br>
+  <%= number_field_tag(:eficiencia, nil, in: 1...7) %></br>
+  <%= label_tag(:spec, "Especialidad del bloque:") %></br>
+  <%= select_tag(:spec_id, options_from_collection_for_select(@specs, :SPEC_ID, :SPEC_NAME))%></br></br>
+<%= submit_tag("Agregar") %>
+<%end%>
+

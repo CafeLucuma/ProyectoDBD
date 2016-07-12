@@ -1,0 +1,9 @@
+<div class="center"><h2>Seleccione un doctor para editar su agenda</h2></div>
+<% @usuarios.each do |u|%>
+<% @doctors.each do |d|%>
+<% if u.user_id == d.user_id %>
+	<div class="center"><%= button_to u.user_NAMES+" "+u.user_LASTNAME1, {:action => 'block', :doctor_id => d.doctor_id, :user_id => u.user_id} %></div>
+<% end %>
+<% end %>
+<% end %>
+

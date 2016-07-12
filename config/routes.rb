@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'administrations/index'
+
+  get 'administrations/hours'
+
+  get 'administrations/selec_doctor'
+
+  get 'administrations/block'
+
+  get 'administrations/add_block'
+
   get 'my_hours/mishoras'
 
   get 'my_hours/mishoras2'
