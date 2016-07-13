@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709183024) do
+ActiveRecord::Schema.define(version: 20160713032551) do
 
   create_table "attention_blocks", primary_key: "AB_ID", force: :cascade do |t|
     t.integer  "doctor_id",      limit: 4, null: false
@@ -166,6 +166,7 @@ ActiveRecord::Schema.define(version: 20160709183024) do
     t.string   "encrypted_password",     limit: 255,   default: "",    null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.integer  "sign_in_count",          limit: 4,     default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -179,6 +180,7 @@ ActiveRecord::Schema.define(version: 20160709183024) do
     t.string   "unlock_token",           limit: 255
     t.datetime "locked_at"
     t.boolean  "admin",                                default: false
+    t.boolean  "functionary",                          default: false
   end
 
   add_index "users", ["ICT_ID"], name: "FK_POSEE_1", using: :btree

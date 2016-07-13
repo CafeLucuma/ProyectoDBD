@@ -1,31 +1,45 @@
 class AdministrationsController < ApplicationController
 	before_filter :authenticate_user!
   	before_filter do 
-    		redirect_to new_user_session_path unless current_user && current_user.admin?
+    		redirect_to new_user_session_path unless current_user && (current_user.admin? || current_user.functionary?)
   	end
   def index
   end
 
   def hours
-	#todas las horas reservadas
-	@horas = ReservedHour.find_by_sql("select * from reserved_hours where reserved_hours.RH_STATE = true")
-	#todos los bloques de atención
-	@abs = AttentionBlock.find_by_sql("select * from attention_blocks where AB_AVAILABLE = true")
-	#los usuarios que son pacientes
-	@usuarios = User.find_by_sql("select * from users u inner join patients p on p.user_id = u.user_id")
-	#pacientes
-	@pacientes = Patient.find_by_sql("select * from patients")
+	if current_user.admin?
+		#todas las horas reservadas
+		@horas = ReservedHour.find_by_sql("select * from reserved_hours where reserved_hours.RH_STATE = true")
+		#todos los bloques de atención
+		@abs = AttentionBlock.find_by_sql("select * from attention_blocks where AB_AVAILABLE = true")
+	else
+		funcionario = Employee.find_by_sql("select * from employees where user_id = '#{current_user.user_id}'")
+		
+		#mostrar las horas del establecimiento del funcionario
+		@horas = ReservedHour.find_by_sql("select * from reserved_hours rh inner join attention_blocks ab on ab.AB_ID = rh.AB_ID inner join doctors d on d.doctor_id = ab.doctor_id where d.EST_ID = '#{funcionario[0].EST_ID}' and rh.RH_STATE = true")
+		@abs = AttentionBlock.find_by_sql("select * from attention_blocks ab inner join doctors d on d.doctor_id = ab.doctor_id where d.EST_ID = '#{funcionario[0].EST_ID}' and ab.AB_AVAILABLE = true")
+	end
+		#los usuarios que son pacientes
+		@usuarios = User.find_by_sql("select * from users u inner join patients p on p.user_id = u.user_id")
+		#pacientes
+		@pacientes = Patient.find_by_sql("select * from patients")
+
   end
 
   def cancelar
 	ReservedHour.cancelar params[:id_hora]
-
+	redirect_to administrations_hours_path
   end
 
   def selec_doctor
-	@doctors = Doctor.find_by_sql("select * from doctors")
-	#usuarios que son doctores
-	@usuarios = User.find_by_sql("select * from users u inner join doctors d on d.user_id = u.user_id")
+	if current_user.admin?
+		@doctors = Doctor.find_by_sql("select * from doctors")
+		#usuarios que son doctores
+	else
+		funcionario = Employee.find_by_sql("select * from employees where user_id = '#{current_user.user_id}'")
+		@doctors = Doctor.find_by_sql("select * from doctors where EST_ID = '#{funcionario[0].EST_ID}'")
+	end
+		@usuarios = User.find_by_sql("select * from users u inner join doctors d on d.user_id = u.user_id")
   end
 
 	#seleccionar los bloques del doctor
