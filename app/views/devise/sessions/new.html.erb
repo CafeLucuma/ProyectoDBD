@@ -5,53 +5,51 @@
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 </head>
 
-<body style = "background-color: #d3d3d3">
-  <div class="login">
-    <div class="container">
-      <div class="row main" style = "margin-top: 20px">
-        <div class="panel-heading">
-          <div class="panel-title text-center">
-            <h2 class="login-title">Iniciar Sesión</h2>
-          </div>
+<body>  
+  <div class="container">
+    <div class="row main" style = "margin-top: 20px">
+      <div class="panel-heading">
+        <div class="panel-title text-center">
+          <h2 class="login-title">Iniciar Sesión</h2>
         </div>
-      </div> 
-      <div class="main-login main-center">
-          <form class="form-horizontal" method="post" action="#">
-            <div class="form-group">
-              <label for="name" class="cols-sm-2 control-label">Correo</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <%= f.email_field :email, autofocus: true, placeholder: "Ingrese sus Correo"%>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="name" class="cols-sm-2 control-label">Contraseña</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                  <%= f.password_field :password, autocomplete: "off", placeholder: "Ingrese sus Contraseña"%>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="cols-sm-10">
-                <div class="field">
-                  <% if devise_mapping.rememberable? -%>
-                    <center><%= f.check_box :remember_me %><%= f.label :Recordarme %></center>
-                  <% end -%>
-                </div>
-              </div>
-            </div>
-            <div class="form-group ">
-              <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Ingresar</button>
-            </div>
-            <div class="login-register">
-              <%= render "devise/shared/links" %>
-            </div>
-          </form>
       </div>
+    </div> 
+    <div class="main-login main-center">
+        <form class="form-horizontal" method="post" action="#">
+          <div class="form-group">
+            <label for="name" class="cols-sm-2 control-label">Correo</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <%= f.email_field :email, autofocus: true, placeholder: "Ingrese sus Correo"%>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name" class="cols-sm-2 control-label">Contraseña</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                <%= f.password_field :password, autocomplete: "off", placeholder: "Ingrese sus Contraseña"%>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="cols-sm-10">
+              <div class="field">
+                <% if devise_mapping.rememberable? -%>
+                  <center><%= f.check_box :remember_me %><%= f.label :Recordarme %></center>
+                <% end -%>
+              </div>
+            </div>
+          </div>
+          <div class="form-group ">
+            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Ingresar</button>
+          </div>
+          <div class="login-register">
+            <%= render "devise/shared/links" %>
+          </div>
+        </form>
     </div>
   </div>
 </body>

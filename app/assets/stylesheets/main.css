@@ -47,7 +47,7 @@ input::-webkit-input-placeholder {
 **************************/
 
 body {
-  background: #fff;
+  background: #efefef;
   font-family: 'Open Sans', sans-serif;
   color:#4e4e4e;
   line-height: 22px;
@@ -2503,9 +2503,6 @@ shortcodes page css
 ********* lOGIN ******
 ************************/
 
-.login{
-  background-color: #d3d3d3;
-}
 .login-title { 
   font-size: 50px;
   font-family: 'Passion One', cursivem !important;

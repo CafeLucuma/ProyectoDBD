@@ -7,172 +7,170 @@
 </head>
 
 
-<body style = "background-color: #d3d3d3">
-  <div class="login">
-    <div class="container">
-      <div class="row main" style = "margin-top: 20px">
-        <div class="panel-heading">
-          <div class="panel-title text-center">
-            <h2 class="login-title">Ingrese sus Datos</h2>
-          </div>
-        </div> 
-        <div class="main-login main-center">
-          <form class="form-horizontal" method="post" action="#">
-            
-            <div class="form-group">
-              <label for="name" class="cols-sm-2 control-label">Nombres</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                  <%= f.text_field :user_NAMES, autofocus: true, placeholder: "Ingrese sus Nombres"%>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="username" class="cols-sm-2 control-label">Apellido Paterno</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                  <%= f.text_field :user_LASTNAME1, autofocus: true, placeholder: "Ingrese su Apellido Paterno" %>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="username" class="cols-sm-2 control-label">Apellido Materno</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                  <%= f.text_field :user_LASTNAME2, autofocus: true, placeholder: "Ingrese su Apellido Materno" %>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="username" class="cols-sm-2 control-label">Fecha de Nacimiento</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <!--<%= f.date_field :user_DATE_OF_BIRTH, autofocus: true, placeholder: "Ej: 22-03-1994" %>-->
-                  <%= date_select(:user_DATE_OF_BIRTH, "", start_year: 1920, use_month_numbers: true, order: [:day, :month, :year])%></br>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="username" class="cols-sm-2 control-label">Nacionalidad</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-credit-card fa" aria-hidden="true"></i></span>
-                  <%= f.select(:ICT_ID, options_from_collection_for_select(@icts, :ICT_ID, :ICT_NATIONALITY))%>
-                </div>
-              </div>
-            </div>
-
-  	        <div class="form-group">
-  		       <label for="username" class="cols-sm-2 control-label">Previsión</label>
-  		         <div class="cols-sm-10">
-  			        <div class="input-group">
-  			          <span class="input-group-addon"><i class="fa fa-credit-card fa" aria-hidden="true"></i></span>
-  			          <%= select_tag(:prevision_id, options_for_select([['ISAPRE', 1], ['FONASA', 2], ['CRUZ BLANCA', 3]])) %>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="username" class="cols-sm-2 control-label">Sexo</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <%= f.radio_button :user_SEX, 'H' %>
-                  <%= f.label :users_SEX, 'Hombre',  :value => 'H' %>
-                  <%= f.radio_button :user_SEX, 'M' %>
-                  <%= f.label :users_SEX, 'Mujer', :value => 'M' %>
-                  <%= f.radio_button :user_SEX, 'O' %>
-                  <%= f.label :users_SEX, 'Otro', :value => 'O' %>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="username" class="cols-sm-2 control-label">Dirección</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
-                  <%= f.text_field :user_ADDRESS, autofocus: true, placeholder: "Ej: Av. Los Aviadores #123" %>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="username" class="cols-sm-2 control-label">Comuna</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
-                  <%= f.select(:commune_id, options_from_collection_for_select(@comunas, :commune_id, :commune_NAME))%>  
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="email" class="cols-sm-2 control-label">Correo</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <%= f.email_field :email, autofocus: true, placeholder: "Ingrese su Correo" %>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="email" class="cols-sm-2 control-label">Teléfono</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-                  <%= f.telephone_field :user_PHONE, autofocus: true, placeholder: "Ej: 2 5486170" %>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="email" class="cols-sm-2 control-label">Celular</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-                  <%= f.telephone_field :user_CELLPHONE, autofocus: true, placeholder: "Ej: +56 9 5486170" %>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="password" class="cols-sm-2 control-label">Contraseña <em>(<%= @minimum_password_length %> Caracteres Mínimo)</em></label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                  <% if @minimum_password_length %>
-                  <% end %>
-                  <%= f.password_field :password, autocomplete: "off", placeholder: "Ingrese su Contraseña" %>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="confirm" class="cols-sm-2 control-label">Confirme su Contraseña</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                  <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confrime su Contraseña" %>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group ">
-              <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Registrarse</button>
-            </div>
-            <div class="login-register">
-              <%= render "devise/shared/links" %>
-            </div>
-          </form>
+<body>
+  <div class="container">
+    <div class="row main" style = "margin-top: 20px">
+      <div class="panel-heading">
+        <div class="panel-title text-center">
+          <h2 class="login-title">Ingrese sus Datos</h2>
         </div>
+      </div> 
+      <div class="main-login main-center">
+        <form class="form-horizontal" method="post" action="#">
+          
+          <div class="form-group">
+            <label for="name" class="cols-sm-2 control-label">Nombres</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                <%= f.text_field :user_NAMES, autofocus: true, placeholder: "Ingrese sus Nombres"%>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="username" class="cols-sm-2 control-label">Apellido Paterno</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                <%= f.text_field :user_LASTNAME1, autofocus: true, placeholder: "Ingrese su Apellido Paterno" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="username" class="cols-sm-2 control-label">Apellido Materno</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                <%= f.text_field :user_LASTNAME2, autofocus: true, placeholder: "Ingrese su Apellido Materno" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="username" class="cols-sm-2 control-label">Fecha de Nacimiento</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <!--<%= f.date_field :user_DATE_OF_BIRTH, autofocus: true, placeholder: "Ej: 22-03-1994" %>-->
+                <%= date_select(:user_DATE_OF_BIRTH, "", start_year: 1920, use_month_numbers: true, order: [:day, :month, :year])%></br>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="username" class="cols-sm-2 control-label">Nacionalidad</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-credit-card fa" aria-hidden="true"></i></span>
+                <%= f.select(:ICT_ID, options_from_collection_for_select(@icts, :ICT_ID, :ICT_NATIONALITY))%>
+              </div>
+            </div>
+          </div>
+
+	        <div class="form-group">
+		       <label for="username" class="cols-sm-2 control-label">Previsión</label>
+		         <div class="cols-sm-10">
+			        <div class="input-group">
+			          <span class="input-group-addon"><i class="fa fa-credit-card fa" aria-hidden="true"></i></span>
+			          <%= select_tag(:prevision_id, options_for_select([['ISAPRE', 1], ['FONASA', 2], ['CRUZ BLANCA', 3]])) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="username" class="cols-sm-2 control-label">Sexo</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <%= f.radio_button :user_SEX, 'H' %>
+                <%= f.label :users_SEX, 'Hombre',  :value => 'H' %>
+                <%= f.radio_button :user_SEX, 'M' %>
+                <%= f.label :users_SEX, 'Mujer', :value => 'M' %>
+                <%= f.radio_button :user_SEX, 'O' %>
+                <%= f.label :users_SEX, 'Otro', :value => 'O' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="username" class="cols-sm-2 control-label">Dirección</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
+                <%= f.text_field :user_ADDRESS, autofocus: true, placeholder: "Ej: Av. Los Aviadores #123" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="username" class="cols-sm-2 control-label">Comuna</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
+                <%= f.select(:commune_id, options_from_collection_for_select(@comunas, :commune_id, :commune_NAME))%>  
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label">Correo</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <%= f.email_field :email, autofocus: true, placeholder: "Ingrese su Correo" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label">Teléfono</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+                <%= f.telephone_field :user_PHONE, autofocus: true, placeholder: "Ej: 2 5486170" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label">Celular</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+                <%= f.telephone_field :user_CELLPHONE, autofocus: true, placeholder: "Ej: +56 9 5486170" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="cols-sm-2 control-label">Contraseña <em>(<%= @minimum_password_length %> Caracteres Mínimo)</em></label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                <% if @minimum_password_length %>
+                <% end %>
+                <%= f.password_field :password, autocomplete: "off", placeholder: "Ingrese su Contraseña" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm" class="cols-sm-2 control-label">Confirme su Contraseña</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confrime su Contraseña" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group ">
+            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Registrarse</button>
+          </div>
+          <div class="login-register">
+            <%= render "devise/shared/links" %>
+          </div>
+        </form>
       </div>
     </div>
   </div>

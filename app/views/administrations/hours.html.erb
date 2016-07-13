@@ -8,28 +8,28 @@
 
 <% if @horas.count != 0 %>
 	<table>
-	<tr>
-		<th>Fecha</th>
-		<th>Hora</th>
-		<th>Paciente</th>
-		<th>Cancelar hora</th>
-	</tr>
-	<% @horas.each do |f| %>
-	<% @abs.each do |a| %>
-	<% @usuarios.each do |u| %>
-	<% @pacientes.each do |p| %>
-	<% if (f.AB_ID == a.AB_ID && f.patient_id == p.patient_id && u.user_id == p.user_id) %>
-	<tr>
-		<td><%= a.AB_DATE %></td>
-		<td><%= f.RH_START_TIME.strftime('%H:%M')%></td>
-		<td><%= u.user_NAMES%> <%= u.user_LASTNAME1%> <%= u.user_LASTNAME2%></td>
-		<td><%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Cancelar</button>".html_safe, {:action => 'cancelar', :id_hora => f.RH_ID} %></td>
-	</tr>
-	<% end %>
-	<% end %>		
-	<% end %>
-	<% end %>
-	<% end %>
+		<tr>
+			<th>Fecha</th>
+			<th>Hora</th>
+			<th>Paciente</th>
+			<th>Cancelar hora</th>
+		</tr>
+		<% @horas.each do |f| %>
+			<% @abs.each do |a| %>
+				<% @usuarios.each do |u| %>
+					<% @pacientes.each do |p| %>
+						<% if (f.AB_ID == a.AB_ID && f.patient_id == p.patient_id && u.user_id == p.user_id) %>
+							<tr>
+								<td><%= a.AB_DATE %></td>
+								<td><%= f.RH_START_TIME.strftime('%H:%M')%></td>
+								<td><%= u.user_NAMES%> <%= u.user_LASTNAME1%> <%= u.user_LASTNAME2%></td>
+								<td><%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Cancelar</button>".html_safe, {:action => 'cancelar', :id_hora => f.RH_ID} %></td>
+							</tr>
+						<% end %>
+					<% end %>		
+				<% end %>
+			<% end %>
+		<% end %>
 	</table>
 <% else %>
 	<div class="center wow fadeInDown">

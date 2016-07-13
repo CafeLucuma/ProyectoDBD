@@ -5,50 +5,48 @@
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 </head>
 
-<body style = "background-color: #d3d3d3">
-  <div class="login">
-    <div class="container">
-      <div class="row main" style = "margin-top: 20px">
-        <div class="panel-heading">
-          <div class="panel-title text-center">
-            <h2 style= "font-size: 36px">Buscar por Médico</h2>
+<body>
+  <div class="container">
+    <div class="row main" style = "margin-top: 20px">
+      <div class="panel-heading">
+        <div class="panel-title text-center">
+          <h2 style= "font-size: 36px">Buscar por Médico</h2>
+        </div>
+      </div>
+    </div> 
+    <div class="main-login main-center">
+      <form class="form-horizontal" method="post" action="#">
+        <div class="form-group">
+          <label for="name" class="cols-sm-2 control-label">Nombre</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+              <%= text_field_tag :nombre, nil, :required => true, placeholder: "Ingrese Nombre Médico" %>
+            </div>
           </div>
         </div>
-      </div> 
-      <div class="main-login main-center">
-        <form class="form-horizontal" method="post" action="#">
-          <div class="form-group">
-            <label for="name" class="cols-sm-2 control-label">Nombre</label>
-            <div class="cols-sm-10">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                <%= text_field_tag :nombre, nil, :required => true, placeholder: "Ingrese Nombre Médico" %>
-              </div>
+        <div class="form-group">
+          <label for="name" class="cols-sm-2 control-label">Apellido Paterno</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-users fa-lg" aria-hidden="true"></i></span>
+              <%= text_field_tag :paterno, nil, :required => true, placeholder: "Ingrese Apellido Paterno" %>
             </div>
           </div>
-          <div class="form-group">
-            <label for="name" class="cols-sm-2 control-label">Apellido Paterno</label>
-            <div class="cols-sm-10">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-users fa-lg" aria-hidden="true"></i></span>
-                <%= text_field_tag :paterno, nil, :required => true, placeholder: "Ingrese Apellido Paterno" %>
-              </div>
+        </div>
+                  <div class="form-group">
+          <label for="name" class="cols-sm-2 control-label">Apellido Materno</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-users fa-lg" aria-hidden="true"></i></span>
+              <%= text_field_tag :materno, nil, :required => true, placeholder: "Ingrese Apellido Paterno" %>
             </div>
           </div>
-                    <div class="form-group">
-            <label for="name" class="cols-sm-2 control-label">Apellido Materno</label>
-            <div class="cols-sm-10">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-users fa-lg" aria-hidden="true"></i></span>
-                <%= text_field_tag :materno, nil, :required => true, placeholder: "Ingrese Apellido Paterno" %>
-              </div>
-            </div>
-          </div>
-          <div class="form-group ">
-            <button type="submit_tag" class="btn btn-primary btn-lg btn-block login-button">Buscar</button>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div class="form-group ">
+          <button type="submit_tag" class="btn btn-primary btn-lg btn-block login-button">Buscar</button>
+        </div>
+      </form>
     </div>
   </div>
 </body>

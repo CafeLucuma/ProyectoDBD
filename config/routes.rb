@@ -9,6 +9,12 @@ Rails.application.routes.draw do
 
   get 'administrations/add_block'
 
+  get 'administrations/message1'
+
+  get 'administrations/message2'
+
+  get 'administrations/message3'
+
   get 'my_hours/mishoras'
 
   get 'my_hours/mishoras2'

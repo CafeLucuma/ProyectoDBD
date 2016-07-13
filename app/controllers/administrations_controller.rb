@@ -28,7 +28,8 @@ class AdministrationsController < ApplicationController
 
   def cancelar
 	ReservedHour.cancelar params[:id_hora]
-	redirect_to administrations_hours_path
+	#Mensaje que dice "hora eliminada"
+	redirect_to administrations_message3_path
   end
 
   def selec_doctor
@@ -67,7 +68,19 @@ class AdministrationsController < ApplicationController
 	
 	AttentionBlock.crear(params[:doctor_id], fecha, hora_inicio, hora_fin, params[:eficiencia], params[:spec_id])
 
-	#falta mensaje que diga bloque creado
-	redirect_to administrations_index_path
+	#Mensaje que dice "bloque creado"
+	redirect_to administrations_message2_path
+  end
+
+  def message1
+  	#Mensaje de Bloque eliminado Exitosamente
+  end
+
+  def message2
+  	#Mensaje de Bloque creado Exitosamente
+  end
+
+def message2
+  	#Mensaje de HORA eliminada Exitosamente
   end
 end

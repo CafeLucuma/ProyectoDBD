@@ -1,17 +1,64 @@
-<h2>Agregar bloque para el doctor <%= @doctor[0].user_NAMES %></h2>
+<section id="contact-info">
+  <div class="center"  style = "padding-bottom: 0px">                
+    <h2>Agregar nuevo Bloque.</h2>
+    <p class="lead">Doctor <%=@doctor[0].user_NAMES %></p>
+  </div>  
+</section>
 
+<!-- Form Tag -->
 <%= form_tag url_for(:controller => "administrations", :action => 'agregar_bloque'), method: "get"  do %>
-  <%= hidden_field_tag :doctor_id, @doctor[0].doctor_id %>
-  <%= label_tag(:fecha, "Fecha de bloque (día/mes/año):") %></br>
-  <%= date_select(:fecha, "", start_year: 2016, use_month_numbers: true, order: [:day, :month, :year])%></br>
-  <%= label_tag(:hora_inicio, "Hora de inicio:") %></br>
-  <%= time_select :hora_inicio, '', {minute_step: 30}, prompt: {hour: 'hora', minute: 'minutos'}%></br>
-  <%= label_tag(:hora_fin, "Hora de fin:") %></br>
-<%= time_select :hora_fin, '', {minute_step: 30}, prompt: {hour: 'hora', minute: 'minutos'}%></br>
-  <%= label_tag(:eficiencia, "Eficiencia por hora:") %></br>
-  <%= number_field_tag(:eficiencia, nil, in: 1...7) %></br>
-  <%= label_tag(:spec, "Especialidad del bloque:") %></br>
-  <%= select_tag(:spec_id, options_from_collection_for_select(@specs, :SPEC_ID, :SPEC_NAME))%></br></br>
-<%= submit_tag("Agregar") %>
+
+<body>  
+
+    <div class="main-login main-center">
+        <form class="form-horizontal" method="post" action="#">
+          <div class="form-group">
+            <label for="name" class="cols-sm-2 control-label">Fecha del Bloque (Día, Mes, Año)</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <%= hidden_field_tag :doctor_id, @doctor[0].doctor_id %>
+                <%= date_select(:fecha, "", start_year: 2016, use_month_numbers: true, order: [:day, :month, :year])%>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name" class="cols-sm-2 control-label">Hora de Inicio</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <%= time_select :hora_inicio, '', {minute_step: 30}, prompt: {hour: 'hora', minute: 'minutos'}%>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name" class="cols-sm-2 control-label">Hora de Fin</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <%= time_select :hora_fin, '', {minute_step: 30}, prompt: {hour: 'hora', minute: 'minutos'}%>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name" class="cols-sm-2 control-label">Eficiencia Por Hora (De 1 a 6)</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <%= number_field_tag(:eficiencia, nil, in: 1...7) %>
+              </div>
+            </div>
+          </div> 
+          <div class="form-group">
+            <label for="name" class="cols-sm-2 control-label">Especialidad del Bloque</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <%= select_tag(:spec_id, options_from_collection_for_select(@specs, :SPEC_ID, :SPEC_NAME))%></br>
+              </div>
+            </div>
+          </div>
+          <div class="form-group ">
+                <center><button type="submit_tag" class="btn btn-primary btn-lg btn-block login-button">Agregar</button></center>
+          </div>
+        </form>
+    </div>
+  </div>
+</body>
 <%end%>
 

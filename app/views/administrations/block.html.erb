@@ -1,28 +1,36 @@
+<section id="contact-info">
+  <div class="center">                
+    <h2>Administrar Bloques</h2>
+    <p class="lead">Puede eliminar un bloque de atención con el botón "Deshabilitar", o agregar uno nuevo utilizando el boton de la parte inferior de  la tabla. </p>
+  </div>  
+</section>
+
 <table>
-<tr>
-  <th>n° Bloque</th>
-  <th>Fecha</th>
-  <th>Hora inicio</th>
-  <th>Hora término</th>
-  <th>Especialidad</th>
-  <th>Acción</th>
-</tr>
-<% @bloques.each_with_index do |b, index|%>
-<% @specs.each do |s| %>
-<% if b.SPEC_ID == s.SPEC_ID %>
-<tr>
-  <td><%= index + 1 %></td>
-  <td><%= b.AB_DATE %></td>
-  <td><%= b.AB_START_TIME.strftime('%H:%M') %></td>
-  <td><%= b.AB_FINISH_TIME.strftime('%H:%M') %></td>
-  <td><%= s.SPEC_NAME %></td>
-  <td><%= button_to "Deshabilitar", {:action => 'deshabilitar', :ab_id => b.AB_ID}%></td>
-</tr>
-<% end %>
-<% end %>
-<% end %>
+  <tr>
+    <th>n° Bloque</th>
+    <th>Fecha</th>
+    <th>Hora inicio</th>
+    <th>Hora término</th>
+    <th>Especialidad</th>
+    <th>Acción</th>
+  </tr>
+  <% @bloques.each_with_index do |b, index|%>
+    <% @specs.each do |s| %>
+      <% if b.SPEC_ID == s.SPEC_ID %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= b.AB_DATE %></td>
+          <td><%= b.AB_START_TIME.strftime('%H:%M') %></td>
+          <td><%= b.AB_FINISH_TIME.strftime('%H:%M') %></td>
+          <td><%= s.SPEC_NAME %></td>
+          <td><%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Deshabilitar</button>".html_safe, {:action => 'deshabilitar', :ab_id => b.AB_ID} %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% end %>
 </table>
 
-
-<%= button_to "Agregar nuevo bloque de atención", {:action => 'add_block', :doctor_id => @doc_id} %>
+<div class="search-center">
+      <%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Agregar nuevo bloque de atención</button>".html_safe, {:action => 'add_block', :doctor_id => @doc_id} %>
+</div>
 
