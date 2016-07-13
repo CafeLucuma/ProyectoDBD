@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
 		sql = "UPDATE users SET user_DATE_OF_BIRTH = '#{cumple}' WHERE user_id = '#{id}'"
 		ActiveRecord::Base.connection.execute(sql)
 	end
+
+	def display_name
+  		user_NAMES + " "+ user_LASTNAME1+ " "+ user_LASTNAME2
+	end
 end

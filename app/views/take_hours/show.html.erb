@@ -7,7 +7,7 @@
 			<div class="cols-sm-6">
 			 	<div class="main-login search-center">
 			 		<%= form_tag(:action => 'index') do %>
-						<center><%= select_tag(:id, options_from_collection_for_select(@doctors, :user_id, :user_NAMES))%></center>
+						<center><%= select_tag(:id, options_from_collection_for_select(@doctors, :user_id, :display_name))%></center>
 						<button type="submit_tag" class="btn btn-primary btn-lg btn-block login-button">Seleccionar</button>
 					<% end %>
 				</div>
