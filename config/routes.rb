@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'my_hours/mishoras2'
 
+  get 'my_hours/message1'
+
   get 'search/index'
 
   get 'take_hours/index'

@@ -20,4 +20,10 @@ before_action :authenticate_user!
 	redirect_to welcome_index_path
 
   end 
+
+  def message1
+  	#cancelar horas y enviar a vista message1
+  	id_hora = ReservedHour.find_by_sql("select * from reserved_hours rh where rh.RH_ID = '#{params[:id_hora]}'")
+	ReservedHour.cancelar(id_hora[0].RH_ID)
+  end
 end

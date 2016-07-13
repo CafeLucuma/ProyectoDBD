@@ -18,7 +18,7 @@
 					<tr>
 						<td><%= a.AB_DATE %></td>
 						<td><%= f.RH_START_TIME.strftime('%H:%M')%></td>
-						<td><%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Cancelar</button>".html_safe, {:action => 'cancelar', :id_hora => f.RH_ID} %></td>
+						<td><%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Cancelar</button>".html_safe, {:action => 'message1', :id_hora => f.RH_ID} %></td>
 					</tr>
 				<% end %>
 			<% end %>
@@ -26,7 +26,7 @@
 	</table>
 
 <% else %>
-	<h2>No posee reservaciones</h2>
+	<div class="center wow fadeInDown">
+		<p class="lead"></br>No posee reservaciones</br>Puede realizar reservaciones de horas en Servicios, Reservar Hora Médica</p>
+	</div>
 <% end %>
-
-
