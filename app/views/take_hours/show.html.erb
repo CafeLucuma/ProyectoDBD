@@ -1,6 +1,21 @@
-<h1>TakeHours#show</h1>
+<body style = "background-color: #d3d3d3">
+	<section id="about-us">
+		<div class = "container" >
+			<div class="center wow fadeInDown">
+				<h2> Elegir Médico</h2>
+			</div>
+			<div class="cols-sm-6">
+			 	<div class="main-login search-center">
+			 		<%= form_tag(:action => 'index') do %>
+						<center><%= select_tag(:id, options_from_collection_for_select(@doctors, :user_id, :user_NAMES))%></center>
+						<button type="submit_tag" class="btn btn-primary btn-lg btn-block login-button">Seleccionar</button>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
 
-<%= form_tag(:action => 'index') do %>
-	<%= select_tag(:id, options_from_collection_for_select(@doctors, :user_id, :user_NAMES))%>
-	<%= submit_tag "Seleccionar" %>
-<% end %>
+
+
+

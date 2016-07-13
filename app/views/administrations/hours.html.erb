@@ -1,4 +1,10 @@
-<h2>Eliminar horas reservadas</h2>
+<section id="about-us">
+	<div class = "container" >
+		<div class="center wow fadeInDown">
+			<h2>Eliminar horas reservadas</h2>
+		</div>
+	</div>
+</section>
 
 <% if @horas.count != 0 %>
 	<table>
@@ -26,5 +32,10 @@
 	<% end %>
 	</table>
 <% else %>
-	<h2>No existen horas reservadas</h2>
+	<div class="center wow fadeInDown">
+		<p class="lead"></br>No hay horas Reservadas</br></p>
+		<div class="search-center">
+			<%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Volver Atrás</button>".html_safe, administrations_index_path %>
+		</div>
+	</div>
 <% end %>

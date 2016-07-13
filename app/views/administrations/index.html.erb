@@ -1,2 +1,14 @@
-<%= link_to "Administrar horas", administrations_hours_path %>
-<%= link_to "Administrar bloques de atención",  administrations_selec_doctor_path%>
+<body style = "background-color: #d3d3d3">
+	<section id="about-us">
+		<div class = "container" >
+			<div class="center wow fadeInDown">
+				<h2> Seleccione una Opción</h2>
+			</div>
+			 <div class="main-login search-center">
+				<%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Administrar horas</button>".html_safe, administrations_hours_path %>
+				<%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Administrar bloques de atención</button>".html_safe, administrations_selec_doctor_path %>
+			</div>
+		</div>
+	</section>
+</body>
+
