@@ -6,10 +6,11 @@ class TakeHoursController < ApplicationController
 	if !params[:id].present? #si no está id, se busca por nombre
 
 		#buscar el doctor con los nombres ingresados
-		@doctor = User.find_by_sql("select * from users inner join doctors on doctors.user_id = users.user_id where user_NAMES = '#{params[:nombre]}'")
-
+		@doctor = User.find_by_sql("select * from users u inner join doctors d on d.user_id = u.user_id where u.user_NAMES = '#{params[:nombre]}' and u.user_LASTNAME1 = '#{params[:paterno]}' and u.user_LASTNAME2 = '#{params[:materno]}'")
+		
 		if @doctor.count == 0
 			redirect_to search_medics_index_path
+			return
 		end
 
 		#bloques de atención disponibles del doctor
@@ -20,7 +21,6 @@ class TakeHoursController < ApplicationController
 
 		#bloques de atención disponibles del doctor
 		@abs = AttentionBlock.find_by_sql("select * from attention_blocks ab inner join doctors d on d.doctor_id = ab.doctor_id inner join users u on u.user_id = d.user_id where u.user_id = '#{params[:id]}' and ab.AB_AVAILABLE = true")
-
 	end
 
 	#especialidades de los bloques
