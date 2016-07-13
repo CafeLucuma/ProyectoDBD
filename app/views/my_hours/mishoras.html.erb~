@@ -1,20 +1,32 @@
-<h2>Mis horas reservadas</h2>
-
-<table>
-	<tr>
-		<th>Fecha</th>
-		<th>Hora</th>
-		<th>Cancelar hora</th>
-	</tr>
-	<% @horas.each do |f| %>
-	<% @abs.each do |a| %>
-	<% if f.AB_ID == a.AB_ID %>
+<section id="about-us">
+	<div class = "container" >
+		<div class="center wow fadeInDown">
+			<h2>Mis horas reservadas</h2>
+		</div>
+	</div>
+</section>
+<% if @horas.count != 0 %>
+	<table>
 		<tr>
-			<td><%= a.AB_DATE %></td>
-			<td><%= f.RH_START_TIME.strftime('%H:%M')%></td>
-			<td><%= button_to "Cancelar", {:action => 'cancelar', :id_hora => f.RH_ID} %></td>
+			<th>Fecha</th>
+			<th>Hora</th>
+			<th>Cancelar hora</th>
 		</tr>
-	<% end %>
-	<% end %>
-	<% end %>
-</table>
+		<% @horas.each do |f| %>
+			<% @abs.each do |a| %>
+				<% if f.AB_ID == a.AB_ID %>
+					<tr>
+						<td><%= a.AB_DATE %></td>
+						<td><%= f.RH_START_TIME.strftime('%H:%M')%></td>
+						<td><%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Cancelar</button>".html_safe, {:action => 'message1', :id_hora => f.RH_ID} %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% end %>
+	</table>
+
+<% else %>
+	<div class="center wow fadeInDown">
+		<p class="lead"></br>No posee reservaciones</br>Puede realizar reservaciones de horas en Servicios, Reservar Hora Médica</p>
+	</div>
+<% end %>
