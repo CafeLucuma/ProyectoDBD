@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713032551) do
+ActiveRecord::Schema.define(version: 20160713182007) do
 
   create_table "attention_blocks", primary_key: "AB_ID", force: :cascade do |t|
     t.integer  "doctor_id",      limit: 4, null: false
@@ -180,6 +180,7 @@ ActiveRecord::Schema.define(version: 20160713032551) do
     t.datetime "locked_at"
     t.boolean  "admin",                                default: false
     t.boolean  "functionary",                          default: false
+    t.boolean  "doctor",                               default: false
   end
 
   add_index "users", ["ICT_ID"], name: "FK_POSEE_1", using: :btree

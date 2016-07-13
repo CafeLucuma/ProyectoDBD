@@ -45,6 +45,16 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
+  get 'reports/gestion' => 'reports#gestion'
+
+  get 'reports/solicitudes' => 'reports#solicitudes'
+
+  get 'reports/asistenciaAPS' => 'reports#asistenciaAPS'
+
+  get 'reports/asistenciaGENERAL' => 'reports#asistenciaGENERAL'
+
+  get 'reports/index'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

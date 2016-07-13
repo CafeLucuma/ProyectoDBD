@@ -1,0 +1,89 @@
+<section id="contact-info">
+	<div class="center">                
+            <h2>Reporte APS</h2>
+            <p class="lead">Reporte del ingreso de pacientes por APS</p>
+    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+					<center><h2 class="list-group">Estadistica total</h2></center>
+					<lu class="list-group">
+						<lu class="list-group">
+							<h3><b>Asistencias por tipo de atención</b></h3>
+							
+							<li class="list-group-item">Primaria: <b> <%= @asistencias_pri %> </b></li>
+							<li class="list-group-item">Secundaria: <b> <%= @asistencias_sec %> </b></li>
+							<li class="list-group-item">Terciaria: <b> <%= @asistencias_ter %> </b></li>
+							
+							
+						</lu>
+					</lu>
+
+					<lu class="list-group">
+						<lu class="list-group">
+							<h3><b>Total</b></h3>
+							
+							<li class="list-group-item">Asistentes: <b> 000 </b></li>
+							<li class="list-group-item">Pacientes: <b> 0</b></li>
+							
+							
+						</lu>
+					</lu>
+			                   
+			</div>
+
+				<div class="col-sm-6">
+					<img src="http://www.definicionabc.com/wp-content/uploads/estadistica.jpg" class="img-rounded " alt="Cinque Terre" height=410px>
+				</div>
+
+			</div>
+
+	</div>
+</section>
+<section>
+
+
+<div>
+	<center><h2>Asistencia de Atención Primaria en Salud</h2></center>
+	<table class = "listing" >
+		<tr class = "header">
+			<th>ID Paciente</th>
+			<th>Nombres</th>
+			<th>Apellido Paterno</th>
+			<th>Apellido Materno</th>
+			<th>Prevision</th>
+			<th>Dir. Establecimiento</th>
+			<th>Tipo de atención</th>
+			<th>Fecha ingreso</th>
+			<th>Asistencia</th>
+		</tr>
+		<% @prevision.each do |prev| %>		
+			<% @pacientes_horas.each do |phr| %>
+					
+				<% @horas_especifico.each do |espc| %>
+					<% if prev.patient_id == phr.patient_id %>
+
+						<% if espc.patient_id == phr.patient_id %>
+							<% if espc.RH_ID == phr.RH_ID %>
+							<tr>
+								<td><%= phr.patient_id %></td>
+								<td><%= phr.user_NAMES %></td>
+								<td><%= phr.user_LASTNAME1 %></td>
+								<td><%= phr.user_LASTNAME2 %></td>
+								<td><%= prev.prevision_NAME %></td>
+								<td><%= espc.EST_ADDRESS %></td>
+								<td><%= espc.AT_attention_types %></td>
+								<td><%= espc.RH_START_TIME %></td>
+								<td><%= phr.RH_ASSISTANCE %></td>
+	
+							</tr>
+							<% end %>	
+						<% end %>	
+					<% end %>	
+				<% end %>	
+			<% end %>
+		<% end %>	
+	</table>
+</div>
+
+</section>

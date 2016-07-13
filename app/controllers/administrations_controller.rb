@@ -83,4 +83,11 @@ class AdministrationsController < ApplicationController
   def message3
   	#Mensaje de HORA eliminada Exitosamente
   end
+
+  def permisos
+  		@users = User.find_by_sql("select * from users") 
+  		@ests = Establishment.find_by_sql("select * from establishments")
+  		@specs = Specialty.find_by_sql("select * from specialties")
+  end
+
 end

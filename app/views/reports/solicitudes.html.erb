@@ -1,0 +1,89 @@
+<section id="contact-info">
+	<div class="center">                
+            <h2>Reporte de solicitudes interconsultas</h2>
+            <p class="lead"> Número de solicitudes de interconsultas por establecimiento APS</p>
+    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+					<center><h2 class="list-group">Estadistica total</h2></center>
+					<lu class="list-group">
+						<lu class="list-group">
+							<h3><b>Solicitudes de interconsultas</b></h3>
+							
+							<li class="list-group-item">Usuario: <b> 0 </b></li>
+							<li class="list-group-item">Paciente: <b> 0 </b></li>
+							<li class="list-group-item"><b>Total:</b> 0 <b> </b></li>
+							
+							
+						</lu>
+					</lu>
+
+					<lu class="list-group">
+						<lu class="list-group">
+							<h3><b>Total</b></h3>		
+							<li class="list-group-item">Pacientes: <b> 000 </b></li>
+							
+							
+						</lu>
+					</lu>
+			                   
+			</div>
+
+				<div class="col-sm-6">
+					<img src="http://www.definicionabc.com/wp-content/uploads/estadistica.jpg" class="img-rounded " alt="Cinque Terre" height=410px>
+				</div>
+
+			</div>
+
+	</div>
+</section>
+<section>
+
+
+<div>
+	<center><h2>Solicitudes de interconsultas por establecimiento APS</h2></center>
+	<table class = "listing" >
+		<tr class = "header">
+			<th>ID Usuario</th>
+			<th>ID Paciente</th>
+			<th>Nombres</th>
+			<th>Apellido Paterno</th>
+			<th>Apellido Materno</th>
+			<th>Prevision</th>
+			<th>Establecimiento APS</th>
+			<th>Solicitud de interconsulta</th>
+		</tr>
+
+		<% @pacientes_horas.each do |phr| %>
+			<% @prevision.each do |prev| %>	
+				<% @horas_especifico.each do |aspr| %>
+					<% if prev.patient_id == phr.patient_id %>
+						<% if aspr.patient_id == phr.patient_id %>
+							<% if aspr.RH_ID == phr.RH_ID %>
+							<tr>
+								<td><%= phr.user_id %></td>
+								<td><%= phr.patient_id %></td>
+								<td><%= phr.user_NAMES %></td>
+								<td><%= phr.user_LASTNAME1 %></td>
+								<td><%= phr.user_LASTNAME2 %></td>
+								<td><%= prev.prevision_NAME %></td>
+								<td><%= aspr.EST_ADDRESS %></td>
+								<td><%= aspr.RH_DERIVED %></td>
+	
+							</tr>
+							<% end %>
+						<% end %>
+					<% end %>	
+				<% end %>	
+			<% end %>	
+		<% end %>
+		
+
+		
+
+
+	</table>
+</div>
+
+</section>

@@ -1,0 +1,77 @@
+<section id="contact-info">
+	<div class="center">                
+            <h2>Reporte Ingreso</h2>
+            <p class="lead">Reporte del ingreso de pacientes por APS</p>
+    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+					<center><h2 class="list-group">Estadistica APS</h2></center>
+					<lu class="list-group">
+						<lu class="list-group">							
+							<li class="list-group-item">Asistencias: <b> <%= @asistencias_pri %> </b></li>
+							<li class="list-group-item">Inasistencias: <b> <%= @asistencias_ter %> </b></li>
+							<li class="list-group-item">Total pacientes: <b> <%= @asistencias_sec %> </b></li>
+							
+							
+							
+						</lu>
+					</lu>
+			                   
+			</div>
+
+				<div class="col-sm-6">
+					<img src="http://www.definicionabc.com/wp-content/uploads/estadistica.jpg" class="img-rounded" alt="Cinque Terre">
+				</div>
+
+			</div>
+
+	</div>
+</section>
+<section>
+
+
+<div>
+	<center><h2>Asistencia de Atención Primaria en Salud</h2></center>
+	<table class = "listing" >
+		<tr class = "header">
+			<th>ID</th>
+			<th>Nombres</th>
+			<th>Apellido Paterno</th>
+			<th>Apellido Materno</th>
+			<th>Prevision</th>
+			<th>Dir. Establecimiento</th>
+			<th>Tipo de atención</th>
+			<th>Hora ingreso</th>
+			<th>Asistencia</th>
+		</tr>
+		
+			<% @pacientes_horas.each do |phr| %>
+				<% @prevision.each do |prev| %>	
+				<% @as_primaria.each do |aspr| %>
+					<% if prev.patient_id == phr.patient_id %>
+
+						<% if aspr.patient_id == phr.patient_id %>
+						<% if aspr.RH_ID == phr.RH_ID %>
+							<tr>
+								<td><%= phr.patient_id %></td>
+								<td><%= phr.user_NAMES %></td>
+								<td><%= phr.user_LASTNAME1 %></td>
+								<td><%= phr.user_LASTNAME2 %></td>
+								<td><%= prev.prevision_NAME %></td>
+								<td><%= aspr.EST_ADDRESS %></td>
+								<td><%= aspr.AT_attention_types %></td>
+								<td><%= aspr.RH_START_TIME %></td>
+								<td><%= phr.RH_ASSISTANCE %></td>
+	
+							</tr>
+							<% end %>
+						<% end %>	
+					<% end %>	
+				<% end %>	
+			<% end %>
+		<% end %>	
+	</table>
+</div>
+
+</section>
