@@ -52,7 +52,7 @@ class AdministrationsController < ApplicationController
 
   def deshabilitar
 	AttentionBlock.deshabilitar(params[:ab_id])
-	redirect_to administrations_index_path
+	redirect_to administrations_message1_path
   end
 
   def add_block
@@ -80,7 +80,7 @@ class AdministrationsController < ApplicationController
   	#Mensaje de Bloque creado Exitosamente
   end
 
-def message2
+  def message3
   	#Mensaje de HORA eliminada Exitosamente
   end
 end
