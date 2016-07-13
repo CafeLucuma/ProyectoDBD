@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   get 'take_hours/show3'
 
+  get 'take_hours/message1'
+
   get 'search_specialties/index'
 
   get 'search_medics/index'
