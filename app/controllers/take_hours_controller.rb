@@ -84,6 +84,9 @@ class TakeHoursController < ApplicationController
   def show3
 	##crear hora confirmada
 	ReservedHour.crear(params[:patient_id], params[:ab_id], params[:hora_inicio], params[:hora_fin])
-	redirect_to welcome_index_path
+	redirect_to take_hours_message1_path
+  end
+
+  def message1
   end
 end
