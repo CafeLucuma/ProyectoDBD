@@ -84,6 +84,13 @@ class AdministrationsController < ApplicationController
   	#Mensaje de HORA eliminada Exitosamente
   end
 
+  def confirmarAsistencia
+  	#Confirma una asistencia
+  	ReservedHour.confirmarAsistencia(params[:id_hora])
+  	#Redirige a la pagina anterior
+  	redirect_to administrations_hours_path
+  end
+
   def permisos
   		@users = User.find_by_sql("select * from users") 
   		@ests = Establishment.find_by_sql("select * from establishments")

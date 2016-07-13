@@ -23,6 +23,11 @@
 								<td><%= a.AB_DATE %></td>
 								<td><%= f.RH_START_TIME.strftime('%H:%M')%></td>
 								<td><%= u.user_NAMES%> <%= u.user_LASTNAME1%> <%= u.user_LASTNAME2%></td>
+								<%if(f.RH_ASSISTANCE == false) %>
+									<td><%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Confirmar Asistencia</button>".html_safe, {:action => 'confirmarAsistencia', :id_hora => f.RH_ID} %></td>
+								<% else%>
+									<td>Esta hora ya ha sido Confirmada<td>
+								<% end %>
 								<td><%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Cancelar</button>".html_safe, {:action => 'cancelar', :id_hora => f.RH_ID} %></td>
 							</tr>
 						<% end %>

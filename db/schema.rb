@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 20160713182007) do
     t.time     "RH_START_TIME"
     t.time     "RH_FINISH_TIME"
     t.boolean  "RH_STATE"
-    t.boolean  "RH_ASSISTANCE"
+    t.boolean  "RH_ASSISTANCE"   default: false    
     t.boolean  "RH_DERIVED"
     t.datetime "created_at"
     t.datetime "updated_at"

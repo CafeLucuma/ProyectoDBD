@@ -15,4 +15,9 @@ class ReservedHour < ActiveRecord::Base
 	sql = "UPDATE reserved_hours SET RH_STATE = false WHERE RH_ID = '#{id}'"
 	ActiveRecord::Base.connection.execute(sql)
 	end
+
+	def self.confirmarAsistencia id_hora
+		sql = "UPDATE reserved_hours SET RH_ASSISTANCE = true WHERE RH_ID = '#{id_hora}'"
+		ActiveRecord::Base.connection.execute(sql)
+	end
 end
