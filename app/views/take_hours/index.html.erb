@@ -47,7 +47,11 @@
 			<td><%= @ciudad[0].city_NAME %></td>
 			<td><%= @comuna[0].commune_NAME %></td>
 			<td><%= @est[0].EST_ADDRESS %></td>
-			<td><%= link_to "<button class='btn btn-primary btn-lg btn-block login-button'>Tomar hora</button>".html_safe, {:action => 'show2', :ab_id => f.AB_ID, :hora_inicio => inicio, :user_id => @doctor[0].user_id, :hora_fin => (inicio + 3600/eficiencia)} %></td>
+			<% if hora_libre(f.AB_ID, inicio) == true %>
+				<td><%= link_to "<button class='btn btn-primary btn-lg btn-block login-button'>Tomar hora</button>".html_safe, {:action => 'show2', :ab_id => f.AB_ID, :hora_inicio => inicio, :user_id => @doctor[0].user_id, :hora_fin => (inicio + 3600/eficiencia)} %></td>
+			<% else %>
+				<td>No disponible</td>
+			<% end %>
 
 			<% inicio = inicio + 3600/eficiencia %>
 			</tr>

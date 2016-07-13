@@ -1,5 +1,7 @@
 class TakeHoursController < ApplicationController
 
+helper_method :hora_libre
+
 #mostrar bloques de atención de los doctores
   def index
 	##para saber si busca por especialidad o por nombre
@@ -51,17 +53,6 @@ class TakeHoursController < ApplicationController
 		#ver si hora está creada
 		@hr =  ReservedHour.find_by_sql("select * from reserved_hours rh where rh.AB_ID = '#{params[:ab_id]}'")
 		
-		#si existe, ver si su hora empiza a la misma hora, si es 			así, está tomada
-		#hr = horas dentro del mismo bloque
-		if @hr != nil #si existe
-		  @hr.each do |f|
-       		    if (f.RH_START_TIME.to_s == params[:hora_inicio] && f.RH_STATE == true)
-			flash[:alert] = "Hora ya está tomada"
-		 	redirect_to search_index_path	
-		    end
-		  end		
-		end
-
 		#doctor
 		@doctor = User.find_by_sql("select * from users where user_id = '#{params[:user_id]}'")
 
@@ -90,4 +81,23 @@ class TakeHoursController < ApplicationController
   	##crear hora confirmada
 	ReservedHour.crear(params[:patient_id], params[:ab_id], params[:hora_inicio], params[:hora_fin])
   end
+
+  def hora_libre(ab_id, hora_inicio)
+	hr =  ReservedHour.find_by_sql("select * from reserved_hours rh where rh.AB_ID = '#{ab_id}'")
+		
+	#si existe, ver si su hora empieza a la misma hora, si es 			así, está tomada
+	#hr = horas dentro del mismo bloque
+	if hr != nil #si existe
+	  hr.each do |f|
+       	    if (f.RH_START_TIME.to_s == hora_inicio.to_s && f.RH_STATE == true)
+		return false
+	    end
+	  end
+	  return true
+	else
+	  #no hay horas agendadas en ese bloque, por lo que se puede tomar
+	  return true		
+	end
+  end
+
 end

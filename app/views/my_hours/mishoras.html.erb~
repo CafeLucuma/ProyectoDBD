@@ -10,18 +10,32 @@
 		<tr>
 			<th>Fecha</th>
 			<th>Hora</th>
+			<th>Especialidad</th>
+			<th>Comuna</th>
+			<th>Dirección</th>
 			<th>Cancelar hora</th>
 		</tr>
 		<% @horas.each do |f| %>
-			<% @abs.each do |a| %>
-				<% if f.AB_ID == a.AB_ID %>
-					<tr>
-						<td><%= a.AB_DATE %></td>
-						<td><%= f.RH_START_TIME.strftime('%H:%M')%></td>
-						<td><%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Cancelar</button>".html_safe, {:action => 'message1', :id_hora => f.RH_ID} %></td>
-					</tr>
-				<% end %>
-			<% end %>
+		<% @abs.each do |a| %>
+		<% @ests.each do |e| %>
+		<% @comunas.each do |c| %>
+		<% @specs.each do |s| %>
+		<% @doctors.each do |d| %>
+		<% if (f.AB_ID == a.AB_ID && a.SPEC_ID == s.SPEC_ID && a.doctor_id == d.doctor_id && d.EST_ID == e.EST_ID && e.commune_id == c.commune_id)%>
+		<tr>
+			<td><%= a.AB_DATE %></td>
+			<td><%= f.RH_START_TIME.strftime('%H:%M')%></td>
+			<td><%= s.SPEC_NAME%></td>
+			<td><%= c.commune_NAME%></td>
+			<td><%= e.EST_ADDRESS %></td>
+			<td><%= link_to "<button class= 'btn btn-primary btn-lg btn-block login-button' >Cancelar</button>".html_safe, {:action => 'message1', :id_hora => f.RH_ID}, :data => {:confirm => "Estás segura/o" }%></td>
+		</tr>
+		<% end %>
+		<% end %>
+		<% end %>
+		<% end %>
+		<% end %>
+		<% end %>
 		<% end %>
 	</table>
 
